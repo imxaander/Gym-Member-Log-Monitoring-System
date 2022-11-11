@@ -163,6 +163,10 @@ Public Class Main
         FilterEmployeeDataGridView()
     End Sub
 
+    Private Sub ExportExcelButton_Click(sender As Object, e As EventArgs) Handles ExportExcelButton.Click
+
+    End Sub
+
 
     'Code just incase automatic filtering
     'Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
