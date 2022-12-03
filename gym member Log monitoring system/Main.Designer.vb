@@ -35,7 +35,6 @@ Partial Class Main
         Me.UpdateEmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.ViewMembersTab = New System.Windows.Forms.TabPage()
-        Me.ExportExcelButton = New System.Windows.Forms.Button()
         Me.MemberFilterColBox = New System.Windows.Forms.ComboBox()
         Me.BySearchLabel = New System.Windows.Forms.Label()
         Me.MemberSearchButton = New System.Windows.Forms.Button()
@@ -49,6 +48,8 @@ Partial Class Main
         Me.EmployeeSearchTextBox = New System.Windows.Forms.TextBox()
         Me.RefreshEmployeeButton = New System.Windows.Forms.Button()
         Me.employeesGridView = New System.Windows.Forms.DataGridView()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -61,7 +62,7 @@ Partial Class Main
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoggedInAsLabel, Me.LoggedInLabel})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 393)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 425)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(657, 22)
         Me.StatusStrip1.TabIndex = 0
@@ -69,6 +70,7 @@ Partial Class Main
         '
         'LoggedInAsLabel
         '
+        Me.LoggedInAsLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
         Me.LoggedInAsLabel.Name = "LoggedInAsLabel"
         Me.LoggedInAsLabel.Size = New System.Drawing.Size(80, 17)
         Me.LoggedInAsLabel.Text = "Logged in as :"
@@ -82,9 +84,11 @@ Partial Class Main
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.Font = New System.Drawing.Font("Gadugi", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MemberToolStripMenuItem, Me.EmployeeToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
         Me.MenuStrip1.Size = New System.Drawing.Size(657, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
@@ -92,211 +96,251 @@ Partial Class Main
         'MemberToolStripMenuItem
         '
         Me.MemberToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddMemberToolStripMenuItem, Me.UpdateMemberToolStripMenuItem})
+        Me.MemberToolStripMenuItem.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MemberToolStripMenuItem.Name = "MemberToolStripMenuItem"
-        Me.MemberToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
+        Me.MemberToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.MemberToolStripMenuItem.Text = "Member"
         '
         'AddMemberToolStripMenuItem
         '
         Me.AddMemberToolStripMenuItem.Name = "AddMemberToolStripMenuItem"
-        Me.AddMemberToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.AddMemberToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AddMemberToolStripMenuItem.Text = "Add Member"
         '
         'UpdateMemberToolStripMenuItem
         '
         Me.UpdateMemberToolStripMenuItem.Name = "UpdateMemberToolStripMenuItem"
-        Me.UpdateMemberToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.UpdateMemberToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.UpdateMemberToolStripMenuItem.Text = "Update Member"
         '
         'EmployeeToolStripMenuItem
         '
         Me.EmployeeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddEmployeeToolStripMenuItem, Me.UpdateEmployeeToolStripMenuItem})
+        Me.EmployeeToolStripMenuItem.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
-        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
+        Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
         Me.EmployeeToolStripMenuItem.Text = "Employee"
         '
         'AddEmployeeToolStripMenuItem
         '
         Me.AddEmployeeToolStripMenuItem.Name = "AddEmployeeToolStripMenuItem"
-        Me.AddEmployeeToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.AddEmployeeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AddEmployeeToolStripMenuItem.Text = "Add Employee"
         '
         'UpdateEmployeeToolStripMenuItem
         '
         Me.UpdateEmployeeToolStripMenuItem.Name = "UpdateEmployeeToolStripMenuItem"
-        Me.UpdateEmployeeToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.UpdateEmployeeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.UpdateEmployeeToolStripMenuItem.Text = "Update Employee"
         '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.ViewMembersTab)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 28)
+        Me.TabControl1.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabControl1.Location = New System.Drawing.Point(12, 30)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(632, 362)
+        Me.TabControl1.Size = New System.Drawing.Size(632, 390)
         Me.TabControl1.TabIndex = 2
         '
         'ViewMembersTab
         '
-        Me.ViewMembersTab.Controls.Add(Me.ExportExcelButton)
+        Me.ViewMembersTab.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(82, Byte), Integer))
+        Me.ViewMembersTab.Controls.Add(Me.Label3)
         Me.ViewMembersTab.Controls.Add(Me.MemberFilterColBox)
         Me.ViewMembersTab.Controls.Add(Me.BySearchLabel)
         Me.ViewMembersTab.Controls.Add(Me.MemberSearchButton)
         Me.ViewMembersTab.Controls.Add(Me.MemberSearchTextBox)
         Me.ViewMembersTab.Controls.Add(Me.RefreshMemberButton)
         Me.ViewMembersTab.Controls.Add(Me.membersGridView)
-        Me.ViewMembersTab.Location = New System.Drawing.Point(4, 22)
+        Me.ViewMembersTab.Location = New System.Drawing.Point(4, 23)
         Me.ViewMembersTab.Name = "ViewMembersTab"
         Me.ViewMembersTab.Padding = New System.Windows.Forms.Padding(3)
-        Me.ViewMembersTab.Size = New System.Drawing.Size(624, 336)
+        Me.ViewMembersTab.Size = New System.Drawing.Size(624, 363)
         Me.ViewMembersTab.TabIndex = 0
         Me.ViewMembersTab.Text = "Members"
-        Me.ViewMembersTab.UseVisualStyleBackColor = True
-        '
-        'ExportExcelButton
-        '
-        Me.ExportExcelButton.Location = New System.Drawing.Point(229, 4)
-        Me.ExportExcelButton.Name = "ExportExcelButton"
-        Me.ExportExcelButton.Size = New System.Drawing.Size(75, 23)
-        Me.ExportExcelButton.TabIndex = 8
-        Me.ExportExcelButton.Text = "Export Excel"
-        Me.ExportExcelButton.UseVisualStyleBackColor = True
         '
         'MemberFilterColBox
         '
         Me.MemberFilterColBox.FormattingEnabled = True
         Me.MemberFilterColBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.MemberFilterColBox.Items.AddRange(New Object() {"last_name", "first_name", "middle_name"})
-        Me.MemberFilterColBox.Location = New System.Drawing.Point(532, 7)
+        Me.MemberFilterColBox.Location = New System.Drawing.Point(532, 8)
         Me.MemberFilterColBox.Name = "MemberFilterColBox"
-        Me.MemberFilterColBox.Size = New System.Drawing.Size(86, 21)
+        Me.MemberFilterColBox.Size = New System.Drawing.Size(86, 22)
         Me.MemberFilterColBox.TabIndex = 7
         '
         'BySearchLabel
         '
         Me.BySearchLabel.AutoSize = True
-        Me.BySearchLabel.Location = New System.Drawing.Point(497, 9)
+        Me.BySearchLabel.Location = New System.Drawing.Point(497, 10)
         Me.BySearchLabel.Name = "BySearchLabel"
-        Me.BySearchLabel.Size = New System.Drawing.Size(28, 13)
+        Me.BySearchLabel.Size = New System.Drawing.Size(28, 14)
         Me.BySearchLabel.TabIndex = 6
         Me.BySearchLabel.Text = "By : "
         '
         'MemberSearchButton
         '
+        Me.MemberSearchButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.MemberSearchButton.FlatAppearance.BorderSize = 0
+        Me.MemberSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.MemberSearchButton.ForeColor = System.Drawing.Color.White
         Me.MemberSearchButton.Location = New System.Drawing.Point(310, 4)
         Me.MemberSearchButton.Name = "MemberSearchButton"
-        Me.MemberSearchButton.Size = New System.Drawing.Size(75, 23)
+        Me.MemberSearchButton.Size = New System.Drawing.Size(75, 25)
         Me.MemberSearchButton.TabIndex = 5
         Me.MemberSearchButton.Text = "Search"
-        Me.MemberSearchButton.UseVisualStyleBackColor = True
+        Me.MemberSearchButton.UseVisualStyleBackColor = False
         '
         'MemberSearchTextBox
         '
+        Me.MemberSearchTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(82, Byte), Integer))
+        Me.MemberSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MemberSearchTextBox.Location = New System.Drawing.Point(391, 6)
         Me.MemberSearchTextBox.Name = "MemberSearchTextBox"
-        Me.MemberSearchTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.MemberSearchTextBox.Size = New System.Drawing.Size(100, 15)
         Me.MemberSearchTextBox.TabIndex = 4
         '
         'RefreshMemberButton
         '
+        Me.RefreshMemberButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.RefreshMemberButton.FlatAppearance.BorderSize = 0
+        Me.RefreshMemberButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RefreshMemberButton.ForeColor = System.Drawing.Color.White
         Me.RefreshMemberButton.Location = New System.Drawing.Point(6, 4)
         Me.RefreshMemberButton.Name = "RefreshMemberButton"
-        Me.RefreshMemberButton.Size = New System.Drawing.Size(75, 23)
+        Me.RefreshMemberButton.Size = New System.Drawing.Size(75, 25)
         Me.RefreshMemberButton.TabIndex = 3
         Me.RefreshMemberButton.Text = "Refresh"
-        Me.RefreshMemberButton.UseVisualStyleBackColor = True
+        Me.RefreshMemberButton.UseVisualStyleBackColor = False
         '
         'membersGridView
         '
         Me.membersGridView.AllowUserToAddRows = False
         Me.membersGridView.AllowUserToDeleteRows = False
         Me.membersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.membersGridView.Location = New System.Drawing.Point(6, 32)
+        Me.membersGridView.Location = New System.Drawing.Point(6, 34)
         Me.membersGridView.Name = "membersGridView"
         Me.membersGridView.ReadOnly = True
-        Me.membersGridView.Size = New System.Drawing.Size(612, 298)
+        Me.membersGridView.Size = New System.Drawing.Size(612, 321)
         Me.membersGridView.TabIndex = 0
         '
         'TabPage2
         '
+        Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(82, Byte), Integer))
+        Me.TabPage2.Controls.Add(Me.Label2)
         Me.TabPage2.Controls.Add(Me.EmployeeFilterColBox)
         Me.TabPage2.Controls.Add(Me.Label1)
         Me.TabPage2.Controls.Add(Me.EmployeeSearchButton)
         Me.TabPage2.Controls.Add(Me.EmployeeSearchTextBox)
         Me.TabPage2.Controls.Add(Me.RefreshEmployeeButton)
         Me.TabPage2.Controls.Add(Me.employeesGridView)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 23)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(624, 336)
+        Me.TabPage2.Size = New System.Drawing.Size(624, 363)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Employees"
-        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'EmployeeFilterColBox
         '
+        Me.EmployeeFilterColBox.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeeFilterColBox.FormattingEnabled = True
         Me.EmployeeFilterColBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.EmployeeFilterColBox.Items.AddRange(New Object() {"last_name", "first_name", "middle_name"})
-        Me.EmployeeFilterColBox.Location = New System.Drawing.Point(532, 7)
+        Me.EmployeeFilterColBox.Location = New System.Drawing.Point(532, 8)
         Me.EmployeeFilterColBox.Name = "EmployeeFilterColBox"
-        Me.EmployeeFilterColBox.Size = New System.Drawing.Size(86, 21)
+        Me.EmployeeFilterColBox.Size = New System.Drawing.Size(86, 22)
         Me.EmployeeFilterColBox.TabIndex = 11
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(497, 9)
+        Me.Label1.Location = New System.Drawing.Point(497, 10)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(28, 13)
+        Me.Label1.Size = New System.Drawing.Size(28, 14)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "By : "
         '
         'EmployeeSearchButton
         '
+        Me.EmployeeSearchButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.EmployeeSearchButton.FlatAppearance.BorderSize = 0
+        Me.EmployeeSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EmployeeSearchButton.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EmployeeSearchButton.ForeColor = System.Drawing.Color.White
         Me.EmployeeSearchButton.Location = New System.Drawing.Point(310, 4)
         Me.EmployeeSearchButton.Name = "EmployeeSearchButton"
-        Me.EmployeeSearchButton.Size = New System.Drawing.Size(75, 23)
+        Me.EmployeeSearchButton.Size = New System.Drawing.Size(75, 25)
         Me.EmployeeSearchButton.TabIndex = 9
         Me.EmployeeSearchButton.Text = "Search"
-        Me.EmployeeSearchButton.UseVisualStyleBackColor = True
+        Me.EmployeeSearchButton.UseVisualStyleBackColor = False
         '
         'EmployeeSearchTextBox
         '
+        Me.EmployeeSearchTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.EmployeeSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.EmployeeSearchTextBox.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeeSearchTextBox.Location = New System.Drawing.Point(391, 6)
         Me.EmployeeSearchTextBox.Name = "EmployeeSearchTextBox"
-        Me.EmployeeSearchTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.EmployeeSearchTextBox.Size = New System.Drawing.Size(100, 15)
         Me.EmployeeSearchTextBox.TabIndex = 8
         '
         'RefreshEmployeeButton
         '
-        Me.RefreshEmployeeButton.Location = New System.Drawing.Point(6, 6)
+        Me.RefreshEmployeeButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.RefreshEmployeeButton.FlatAppearance.BorderSize = 0
+        Me.RefreshEmployeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RefreshEmployeeButton.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RefreshEmployeeButton.ForeColor = System.Drawing.Color.White
+        Me.RefreshEmployeeButton.Location = New System.Drawing.Point(6, 5)
         Me.RefreshEmployeeButton.Name = "RefreshEmployeeButton"
-        Me.RefreshEmployeeButton.Size = New System.Drawing.Size(75, 23)
+        Me.RefreshEmployeeButton.Size = New System.Drawing.Size(75, 25)
         Me.RefreshEmployeeButton.TabIndex = 4
         Me.RefreshEmployeeButton.Text = "Refresh"
-        Me.RefreshEmployeeButton.UseVisualStyleBackColor = True
+        Me.RefreshEmployeeButton.UseVisualStyleBackColor = False
         '
         'employeesGridView
         '
         Me.employeesGridView.AllowUserToAddRows = False
         Me.employeesGridView.AllowUserToDeleteRows = False
         Me.employeesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.employeesGridView.Location = New System.Drawing.Point(6, 33)
+        Me.employeesGridView.Location = New System.Drawing.Point(6, 35)
         Me.employeesGridView.Name = "employeesGridView"
         Me.employeesGridView.ReadOnly = True
-        Me.employeesGridView.Size = New System.Drawing.Size(612, 297)
+        Me.employeesGridView.Size = New System.Drawing.Size(612, 321)
         Me.employeesGridView.TabIndex = 0
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(391, 26)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(100, 2)
+        Me.Label2.TabIndex = 12
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(391, 26)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(100, 2)
+        Me.Label3.TabIndex = 13
         '
         'Main
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(657, 415)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(657, 447)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Main"
@@ -333,7 +377,6 @@ Partial Class Main
     Friend WithEvents BySearchLabel As Label
     Friend WithEvents MemberSearchButton As Button
     Friend WithEvents MemberSearchTextBox As TextBox
-    Friend WithEvents ExportExcelButton As Button
     Friend WithEvents employeesGridView As DataGridView
     Friend WithEvents RefreshEmployeeButton As Button
     Friend WithEvents EmployeeToolStripMenuItem As ToolStripMenuItem
@@ -343,4 +386,6 @@ Partial Class Main
     Friend WithEvents Label1 As Label
     Friend WithEvents EmployeeSearchButton As Button
     Friend WithEvents EmployeeSearchTextBox As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
 End Class

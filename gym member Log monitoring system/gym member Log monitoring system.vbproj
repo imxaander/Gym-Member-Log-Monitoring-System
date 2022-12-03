@@ -225,5 +225,8 @@
   <ItemGroup>
     <None Include="Resources\manipaksiw_logo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manipaksiw_logo_nobg.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -31,7 +31,9 @@ Public Class Main
 
         'Load Member Overview
         LoadMemberOverView()
-        LoadEmployeeOverView
+        LoadEmployeeOverView()
+
+        MenuStrip1.BackColor = Color.Green
     End Sub
     Public Sub LoadMemberOverView()
 
@@ -163,9 +165,10 @@ Public Class Main
         FilterEmployeeDataGridView()
     End Sub
 
-    Private Sub ExportExcelButton_Click(sender As Object, e As EventArgs) Handles ExportExcelButton.Click
+    Private Sub ExportExcelButton_Click(sender As Object, e As EventArgs)
 
     End Sub
+
 
 
     'Code just incase automatic filtering
