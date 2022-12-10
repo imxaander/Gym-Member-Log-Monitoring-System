@@ -32,21 +32,4 @@ Public Class Login
         Me.Close()
     End Sub
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs)
-
-    End Sub
-
-    Private Sub PasswordLoginLabel_Click(sender As Object, e As EventArgs) Handles PasswordLoginLabel.Click
-
-    End Sub
-
-    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub UsernameLoginLabel_Click(sender As Object, e As EventArgs) Handles UsernameLoginLabel.Click
-
-    End Sub
-
-
 End Class

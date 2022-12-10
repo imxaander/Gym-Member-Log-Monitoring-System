@@ -33,7 +33,8 @@ Public Class Main
         LoadMemberOverView()
         LoadEmployeeOverView()
 
-        MenuStrip1.BackColor = Color.Green
+        MenuStrip1.BackColor = ColorTranslator.FromHtml("#282A3A")
+
     End Sub
     Public Sub LoadMemberOverView()
 
@@ -168,6 +169,17 @@ Public Class Main
     Private Sub ExportExcelButton_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub ExitButtonMain_Click(sender As Object, e As EventArgs) Handles ExitButtonMain.Click
+        Login.Close()
+        Close()
+        AddMember.Close()
+        AddEmployee.Close()
+        UpdateEmployee.Close()
+        UpdateMember.Close()
+    End Sub
+
+
 
 
 

@@ -137,7 +137,7 @@ Partial Class Login
         Me.Panel1.Controls.Add(Me.PasswordLoginLabel)
         Me.Panel1.Controls.Add(Me.LoginButton)
         Me.Panel1.Controls.Add(Me.PasswordTextBox)
-        Me.Panel1.Location = New System.Drawing.Point(45, 146)
+        Me.Panel1.Location = New System.Drawing.Point(12, 135)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(258, 278)
         Me.Panel1.TabIndex = 8
@@ -163,7 +163,7 @@ Partial Class Login
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources.manipaksiw_logo_nobg
-        Me.PictureBox1.Location = New System.Drawing.Point(45, 34)
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 23)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(258, 106)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -175,13 +175,14 @@ Partial Class Login
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(347, 425)
+        Me.ClientSize = New System.Drawing.Size(283, 425)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Login"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
