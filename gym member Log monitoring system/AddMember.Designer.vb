@@ -48,13 +48,23 @@ Partial Class AddMember
         Me.Label5 = New System.Windows.Forms.Label()
         Me.InsertImageButton = New System.Windows.Forms.Button()
         Me.MemberImagePreview = New System.Windows.Forms.PictureBox()
+        Me.ExitButton = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MemberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.MemberImagePreview, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'AddLastNameLabel
         '
         Me.AddLastNameLabel.AutoSize = True
-        Me.AddLastNameLabel.Location = New System.Drawing.Point(82, 50)
+        Me.AddLastNameLabel.ForeColor = System.Drawing.Color.White
+        Me.AddLastNameLabel.Location = New System.Drawing.Point(82, 72)
         Me.AddLastNameLabel.Name = "AddLastNameLabel"
         Me.AddLastNameLabel.Size = New System.Drawing.Size(58, 13)
         Me.AddLastNameLabel.TabIndex = 0
@@ -63,7 +73,8 @@ Partial Class AddMember
         'AddFirstNameLabel
         '
         Me.AddFirstNameLabel.AutoSize = True
-        Me.AddFirstNameLabel.Location = New System.Drawing.Point(88, 78)
+        Me.AddFirstNameLabel.ForeColor = System.Drawing.Color.White
+        Me.AddFirstNameLabel.Location = New System.Drawing.Point(88, 100)
         Me.AddFirstNameLabel.Name = "AddFirstNameLabel"
         Me.AddFirstNameLabel.Size = New System.Drawing.Size(57, 13)
         Me.AddFirstNameLabel.TabIndex = 1
@@ -72,7 +83,8 @@ Partial Class AddMember
         'AddMiddleNameLabel
         '
         Me.AddMiddleNameLabel.AutoSize = True
-        Me.AddMiddleNameLabel.Location = New System.Drawing.Point(74, 107)
+        Me.AddMiddleNameLabel.ForeColor = System.Drawing.Color.White
+        Me.AddMiddleNameLabel.Location = New System.Drawing.Point(74, 129)
         Me.AddMiddleNameLabel.Name = "AddMiddleNameLabel"
         Me.AddMiddleNameLabel.Size = New System.Drawing.Size(69, 13)
         Me.AddMiddleNameLabel.TabIndex = 2
@@ -81,7 +93,8 @@ Partial Class AddMember
         'AddDobLabel
         '
         Me.AddDobLabel.AutoSize = True
-        Me.AddDobLabel.Location = New System.Drawing.Point(76, 139)
+        Me.AddDobLabel.ForeColor = System.Drawing.Color.White
+        Me.AddDobLabel.Location = New System.Drawing.Point(76, 161)
         Me.AddDobLabel.Name = "AddDobLabel"
         Me.AddDobLabel.Size = New System.Drawing.Size(66, 13)
         Me.AddDobLabel.TabIndex = 3
@@ -90,7 +103,8 @@ Partial Class AddMember
         'AddGenderLabel
         '
         Me.AddGenderLabel.AutoSize = True
-        Me.AddGenderLabel.Location = New System.Drawing.Point(98, 163)
+        Me.AddGenderLabel.ForeColor = System.Drawing.Color.White
+        Me.AddGenderLabel.Location = New System.Drawing.Point(98, 185)
         Me.AddGenderLabel.Name = "AddGenderLabel"
         Me.AddGenderLabel.Size = New System.Drawing.Size(42, 13)
         Me.AddGenderLabel.TabIndex = 4
@@ -99,7 +113,8 @@ Partial Class AddMember
         'AddDateStartLabel
         '
         Me.AddDateStartLabel.AutoSize = True
-        Me.AddDateStartLabel.Location = New System.Drawing.Point(113, 363)
+        Me.AddDateStartLabel.ForeColor = System.Drawing.Color.White
+        Me.AddDateStartLabel.Location = New System.Drawing.Point(113, 385)
         Me.AddDateStartLabel.Name = "AddDateStartLabel"
         Me.AddDateStartLabel.Size = New System.Drawing.Size(29, 13)
         Me.AddDateStartLabel.TabIndex = 5
@@ -108,7 +123,8 @@ Partial Class AddMember
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(25, 337)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(25, 359)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(64, 13)
         Me.Label1.TabIndex = 6
@@ -117,7 +133,8 @@ Partial Class AddMember
         'AddEndDateLabel
         '
         Me.AddEndDateLabel.AutoSize = True
-        Me.AddEndDateLabel.Location = New System.Drawing.Point(114, 389)
+        Me.AddEndDateLabel.ForeColor = System.Drawing.Color.White
+        Me.AddEndDateLabel.Location = New System.Drawing.Point(114, 411)
         Me.AddEndDateLabel.Name = "AddEndDateLabel"
         Me.AddEndDateLabel.Size = New System.Drawing.Size(26, 13)
         Me.AddEndDateLabel.TabIndex = 7
@@ -126,7 +143,8 @@ Partial Class AddMember
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(25, 21)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(25, 43)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(80, 13)
         Me.Label2.TabIndex = 8
@@ -136,31 +154,39 @@ Partial Class AddMember
         '
         Me.DateOfBirthPicker.CustomFormat = "yyy-MM-dd"
         Me.DateOfBirthPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateOfBirthPicker.Location = New System.Drawing.Point(151, 133)
+        Me.DateOfBirthPicker.Location = New System.Drawing.Point(151, 155)
         Me.DateOfBirthPicker.Name = "DateOfBirthPicker"
         Me.DateOfBirthPicker.Size = New System.Drawing.Size(95, 20)
         Me.DateOfBirthPicker.TabIndex = 9
         '
         'LastNameTextBox
         '
-        Me.LastNameTextBox.Location = New System.Drawing.Point(151, 47)
+        Me.LastNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.LastNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LastNameTextBox.ForeColor = System.Drawing.Color.White
+        Me.LastNameTextBox.Location = New System.Drawing.Point(151, 69)
         Me.LastNameTextBox.Name = "LastNameTextBox"
-        Me.LastNameTextBox.Size = New System.Drawing.Size(200, 20)
+        Me.LastNameTextBox.Size = New System.Drawing.Size(200, 13)
         Me.LastNameTextBox.TabIndex = 10
         '
         'FirstNameTextBox
         '
-        Me.FirstNameTextBox.Location = New System.Drawing.Point(151, 75)
+        Me.FirstNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.FirstNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.FirstNameTextBox.ForeColor = System.Drawing.Color.White
+        Me.FirstNameTextBox.Location = New System.Drawing.Point(151, 97)
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
-        Me.FirstNameTextBox.Size = New System.Drawing.Size(200, 20)
+        Me.FirstNameTextBox.Size = New System.Drawing.Size(200, 13)
         Me.FirstNameTextBox.TabIndex = 11
         '
         'GenderBox
         '
+        Me.GenderBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.GenderBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.GenderBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.GenderBox.FormattingEnabled = True
         Me.GenderBox.Items.AddRange(New Object() {"Male", "Female"})
-        Me.GenderBox.Location = New System.Drawing.Point(151, 160)
+        Me.GenderBox.Location = New System.Drawing.Point(151, 182)
         Me.GenderBox.Name = "GenderBox"
         Me.GenderBox.Size = New System.Drawing.Size(200, 21)
         Me.GenderBox.TabIndex = 14
@@ -169,7 +195,7 @@ Partial Class AddMember
         '
         Me.StartDatePicker.CustomFormat = "yyyy-MM-dd"
         Me.StartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.StartDatePicker.Location = New System.Drawing.Point(151, 357)
+        Me.StartDatePicker.Location = New System.Drawing.Point(151, 379)
         Me.StartDatePicker.Name = "StartDatePicker"
         Me.StartDatePicker.Size = New System.Drawing.Size(95, 20)
         Me.StartDatePicker.TabIndex = 15
@@ -178,49 +204,65 @@ Partial Class AddMember
         '
         Me.EndDatePicker.CustomFormat = "yyyy-MM-dd"
         Me.EndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.EndDatePicker.Location = New System.Drawing.Point(151, 383)
+        Me.EndDatePicker.Location = New System.Drawing.Point(151, 405)
         Me.EndDatePicker.Name = "EndDatePicker"
         Me.EndDatePicker.Size = New System.Drawing.Size(95, 20)
         Me.EndDatePicker.TabIndex = 16
         '
         'AddMemberButton
         '
-        Me.AddMemberButton.Location = New System.Drawing.Point(151, 426)
+        Me.AddMemberButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.AddMemberButton.FlatAppearance.BorderSize = 0
+        Me.AddMemberButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AddMemberButton.ForeColor = System.Drawing.Color.White
+        Me.AddMemberButton.Location = New System.Drawing.Point(151, 448)
         Me.AddMemberButton.Name = "AddMemberButton"
         Me.AddMemberButton.Size = New System.Drawing.Size(75, 23)
         Me.AddMemberButton.TabIndex = 17
         Me.AddMemberButton.Text = "Confirm Add"
-        Me.AddMemberButton.UseVisualStyleBackColor = True
+        Me.AddMemberButton.UseVisualStyleBackColor = False
         '
         'CancelAddButton
         '
-        Me.CancelAddButton.Location = New System.Drawing.Point(276, 426)
+        Me.CancelAddButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.CancelAddButton.FlatAppearance.BorderSize = 0
+        Me.CancelAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CancelAddButton.ForeColor = System.Drawing.Color.White
+        Me.CancelAddButton.Location = New System.Drawing.Point(276, 448)
         Me.CancelAddButton.Name = "CancelAddButton"
         Me.CancelAddButton.Size = New System.Drawing.Size(75, 23)
         Me.CancelAddButton.TabIndex = 18
         Me.CancelAddButton.Text = "Cancel"
-        Me.CancelAddButton.UseVisualStyleBackColor = True
+        Me.CancelAddButton.UseVisualStyleBackColor = False
         '
         'ClearFieldsButton
         '
-        Me.ClearFieldsButton.Location = New System.Drawing.Point(369, 21)
+        Me.ClearFieldsButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.ClearFieldsButton.FlatAppearance.BorderSize = 0
+        Me.ClearFieldsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ClearFieldsButton.ForeColor = System.Drawing.Color.White
+        Me.ClearFieldsButton.Location = New System.Drawing.Point(369, 43)
         Me.ClearFieldsButton.Name = "ClearFieldsButton"
         Me.ClearFieldsButton.Size = New System.Drawing.Size(75, 23)
         Me.ClearFieldsButton.TabIndex = 19
         Me.ClearFieldsButton.Text = "Clear"
-        Me.ClearFieldsButton.UseVisualStyleBackColor = True
+        Me.ClearFieldsButton.UseVisualStyleBackColor = False
         '
         'MiddleNameTextBox
         '
-        Me.MiddleNameTextBox.Location = New System.Drawing.Point(151, 104)
+        Me.MiddleNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.MiddleNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.MiddleNameTextBox.ForeColor = System.Drawing.Color.White
+        Me.MiddleNameTextBox.Location = New System.Drawing.Point(151, 126)
         Me.MiddleNameTextBox.Name = "MiddleNameTextBox"
-        Me.MiddleNameTextBox.Size = New System.Drawing.Size(200, 20)
+        Me.MiddleNameTextBox.Size = New System.Drawing.Size(200, 13)
         Me.MiddleNameTextBox.TabIndex = 20
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(81, 191)
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(81, 213)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(61, 13)
         Me.Label3.TabIndex = 21
@@ -228,22 +270,29 @@ Partial Class AddMember
         '
         'ContactTextBox
         '
-        Me.ContactTextBox.Location = New System.Drawing.Point(151, 188)
+        Me.ContactTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.ContactTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ContactTextBox.ForeColor = System.Drawing.Color.White
+        Me.ContactTextBox.Location = New System.Drawing.Point(151, 210)
         Me.ContactTextBox.Name = "ContactTextBox"
-        Me.ContactTextBox.Size = New System.Drawing.Size(200, 20)
+        Me.ContactTextBox.Size = New System.Drawing.Size(200, 13)
         Me.ContactTextBox.TabIndex = 22
         '
         'AddressTextBox
         '
-        Me.AddressTextBox.Location = New System.Drawing.Point(151, 214)
+        Me.AddressTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.AddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.AddressTextBox.ForeColor = System.Drawing.Color.White
+        Me.AddressTextBox.Location = New System.Drawing.Point(151, 236)
         Me.AddressTextBox.Name = "AddressTextBox"
-        Me.AddressTextBox.Size = New System.Drawing.Size(200, 20)
+        Me.AddressTextBox.Size = New System.Drawing.Size(200, 13)
         Me.AddressTextBox.TabIndex = 24
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(81, 217)
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(81, 239)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(45, 13)
         Me.Label4.TabIndex = 23
@@ -252,7 +301,8 @@ Partial Class AddMember
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(98, 264)
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(98, 286)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(36, 13)
         Me.Label5.TabIndex = 25
@@ -260,27 +310,115 @@ Partial Class AddMember
         '
         'InsertImageButton
         '
-        Me.InsertImageButton.Location = New System.Drawing.Point(151, 259)
+        Me.InsertImageButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.InsertImageButton.FlatAppearance.BorderSize = 0
+        Me.InsertImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.InsertImageButton.ForeColor = System.Drawing.Color.White
+        Me.InsertImageButton.Location = New System.Drawing.Point(151, 281)
         Me.InsertImageButton.Name = "InsertImageButton"
         Me.InsertImageButton.Size = New System.Drawing.Size(75, 23)
         Me.InsertImageButton.TabIndex = 26
         Me.InsertImageButton.Text = "Insert Image"
-        Me.InsertImageButton.UseVisualStyleBackColor = True
+        Me.InsertImageButton.UseVisualStyleBackColor = False
         '
         'MemberImagePreview
         '
-        Me.MemberImagePreview.Location = New System.Drawing.Point(276, 259)
+        Me.MemberImagePreview.Location = New System.Drawing.Point(276, 281)
         Me.MemberImagePreview.Name = "MemberImagePreview"
         Me.MemberImagePreview.Size = New System.Drawing.Size(112, 91)
         Me.MemberImagePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.MemberImagePreview.TabIndex = 27
         Me.MemberImagePreview.TabStop = False
         '
+        'ExitButton
+        '
+        Me.ExitButton.BackColor = System.Drawing.Color.Transparent
+        Me.ExitButton.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExitButton.ForeColor = System.Drawing.Color.White
+        Me.ExitButton.Location = New System.Drawing.Point(436, 0)
+        Me.ExitButton.Name = "ExitButton"
+        Me.ExitButton.Size = New System.Drawing.Size(24, 24)
+        Me.ExitButton.TabIndex = 52
+        Me.ExitButton.Text = "×"
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(151, 85)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(200, 2)
+        Me.Label6.TabIndex = 53
+        '
+        'Label7
+        '
+        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label7.Location = New System.Drawing.Point(151, 113)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(200, 2)
+        Me.Label7.TabIndex = 54
+        '
+        'Label8
+        '
+        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label8.Location = New System.Drawing.Point(151, 142)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(200, 2)
+        Me.Label8.TabIndex = 55
+        '
+        'Label9
+        '
+        Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label9.Location = New System.Drawing.Point(151, 226)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(200, 2)
+        Me.Label9.TabIndex = 56
+        '
+        'Label10
+        '
+        Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label10.Location = New System.Drawing.Point(151, 252)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(200, 2)
+        Me.Label10.TabIndex = 57
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.Transparent
+        Me.MenuStrip1.Font = New System.Drawing.Font("Gadugi", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MemberToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.MenuStrip1.Size = New System.Drawing.Size(460, 24)
+        Me.MenuStrip1.TabIndex = 58
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'MemberToolStripMenuItem
+        '
+        Me.MemberToolStripMenuItem.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MemberToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.MemberToolStripMenuItem.Name = "MemberToolStripMenuItem"
+        Me.MemberToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
+        Me.MemberToolStripMenuItem.Text = "Add Member"
+        '
         'AddMember
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(460, 469)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(460, 483)
+        Me.Controls.Add(Me.ExitButton)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.MemberImagePreview)
         Me.Controls.Add(Me.InsertImageButton)
         Me.Controls.Add(Me.Label5)
@@ -307,9 +445,12 @@ Partial Class AddMember
         Me.Controls.Add(Me.AddMiddleNameLabel)
         Me.Controls.Add(Me.AddFirstNameLabel)
         Me.Controls.Add(Me.AddLastNameLabel)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AddMember"
         Me.Text = "Add Member"
         CType(Me.MemberImagePreview, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -341,4 +482,12 @@ Partial Class AddMember
     Friend WithEvents Label5 As Label
     Friend WithEvents InsertImageButton As Button
     Friend WithEvents MemberImagePreview As PictureBox
+    Friend WithEvents ExitButton As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MemberToolStripMenuItem As ToolStripMenuItem
 End Class

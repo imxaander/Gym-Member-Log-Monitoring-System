@@ -62,6 +62,7 @@ Partial Class Main
         '
         'StatusStrip1
         '
+        Me.StatusStrip1.BackColor = System.Drawing.Color.Transparent
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoggedInAsLabel, Me.LoggedInLabel})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 425)
         Me.StatusStrip1.Name = "StatusStrip1"
@@ -85,7 +86,7 @@ Partial Class Main
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.White
+        Me.MenuStrip1.BackColor = System.Drawing.Color.Transparent
         Me.MenuStrip1.Font = New System.Drawing.Font("Gadugi", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MemberToolStripMenuItem, Me.EmployeeToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
@@ -99,6 +100,7 @@ Partial Class Main
         '
         Me.MemberToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddMemberToolStripMenuItem, Me.UpdateMemberToolStripMenuItem})
         Me.MemberToolStripMenuItem.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MemberToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.MemberToolStripMenuItem.Name = "MemberToolStripMenuItem"
         Me.MemberToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.MemberToolStripMenuItem.Text = "Member"
@@ -107,19 +109,21 @@ Partial Class Main
         '
         Me.AddMemberToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.AddMemberToolStripMenuItem.Name = "AddMemberToolStripMenuItem"
-        Me.AddMemberToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AddMemberToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
         Me.AddMemberToolStripMenuItem.Text = "Add Member"
         '
         'UpdateMemberToolStripMenuItem
         '
+        Me.UpdateMemberToolStripMenuItem.BackColor = System.Drawing.Color.Black
         Me.UpdateMemberToolStripMenuItem.Name = "UpdateMemberToolStripMenuItem"
-        Me.UpdateMemberToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.UpdateMemberToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
         Me.UpdateMemberToolStripMenuItem.Text = "Update Member"
         '
         'EmployeeToolStripMenuItem
         '
         Me.EmployeeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddEmployeeToolStripMenuItem, Me.UpdateEmployeeToolStripMenuItem})
         Me.EmployeeToolStripMenuItem.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EmployeeToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem"
         Me.EmployeeToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
         Me.EmployeeToolStripMenuItem.Text = "Employee"
@@ -210,6 +214,7 @@ Partial Class Main
         '
         Me.MemberSearchTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.MemberSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.MemberSearchTextBox.ForeColor = System.Drawing.Color.White
         Me.MemberSearchTextBox.Location = New System.Drawing.Point(391, 6)
         Me.MemberSearchTextBox.Name = "MemberSearchTextBox"
         Me.MemberSearchTextBox.Size = New System.Drawing.Size(100, 15)
@@ -281,6 +286,7 @@ Partial Class Main
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(497, 10)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(28, 14)
@@ -306,6 +312,7 @@ Partial Class Main
         Me.EmployeeSearchTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.EmployeeSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.EmployeeSearchTextBox.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EmployeeSearchTextBox.ForeColor = System.Drawing.Color.White
         Me.EmployeeSearchTextBox.Location = New System.Drawing.Point(391, 6)
         Me.EmployeeSearchTextBox.Name = "EmployeeSearchTextBox"
         Me.EmployeeSearchTextBox.Size = New System.Drawing.Size(100, 15)

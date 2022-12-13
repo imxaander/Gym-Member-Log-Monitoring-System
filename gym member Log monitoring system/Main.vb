@@ -33,8 +33,6 @@ Public Class Main
         LoadMemberOverView()
         LoadEmployeeOverView()
 
-        MenuStrip1.BackColor = ColorTranslator.FromHtml("#282A3A")
-
     End Sub
     Public Sub LoadMemberOverView()
 
@@ -56,17 +54,7 @@ Public Class Main
         'load table values to the grid view
         membersGridView.DataSource = dtMembers
 
-        'change color of row depending on how many days left
-        Dim redWarningDays = 7
-        Dim orangeWarningDays = 14
-        Dim dateToday = Date.Today
-        For i = 0 To membersGridView.Rows.Count - 1
-            If redWarningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
-                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Red
-            ElseIf orangeWarningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
-                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Orange
-            End If
-        Next
+
 
     End Sub
     Public Sub LoadEmployeeOverView()
@@ -87,6 +75,18 @@ Public Class Main
 
         'load values to the grid view
         employeesGridView.DataSource = dtEmployees
+
+        'change color of row depending on how many days left
+        Dim redWarningDays = 7
+        Dim orangeWarningDays = 14
+        Dim dateToday = Date.Today
+        For i = 0 To membersGridView.Rows.Count - 1
+            If redWarningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
+                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Red
+            ElseIf orangeWarningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
+                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Orange
+            End If
+        Next
     End Sub
 
     Public Sub FilterMemberDataGridView()
@@ -171,6 +171,10 @@ Public Class Main
     End Sub
 
     Private Sub ExitButtonMain_Click(sender As Object, e As EventArgs) Handles ExitButtonMain.Click
+        ExitApplication()
+    End Sub
+
+    Public Sub ExitApplication()
         Login.Close()
         Close()
         AddMember.Close()
@@ -179,6 +183,50 @@ Public Class Main
         UpdateMember.Close()
     End Sub
 
+#Region " Move Form "
+
+    ' [ Move Form ]
+    '
+    ' // By Elektro 
+
+    Public MoveForm As Boolean
+    Public MoveForm_MousePosition As Point
+
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
+    MenuStrip1.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+
+        If e.Button = MouseButtons.Left Then
+            MoveForm = True
+            Me.Cursor = Cursors.NoMove2D
+            MoveForm_MousePosition = e.Location
+        End If
+
+    End Sub
+
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
+    MenuStrip1.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+
+        If MoveForm Then
+            Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+        End If
+
+    End Sub
+
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
+    MenuStrip1.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+
+        If e.Button = MouseButtons.Left Then
+            MoveForm = False
+            Me.Cursor = Cursors.Default
+        End If
+
+    End Sub
+
+    Private Sub membersGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles membersGridView.CellContentClick
+
+    End Sub
+
+#End Region
 
 
 

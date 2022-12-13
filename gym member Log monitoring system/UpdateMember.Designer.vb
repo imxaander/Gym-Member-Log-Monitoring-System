@@ -51,29 +51,46 @@ Partial Class UpdateMember
         Me.AddEndDateLabel = New System.Windows.Forms.Label()
         Me.AddDateStartLabel = New System.Windows.Forms.Label()
         Me.ImageEditBox = New System.Windows.Forms.PictureBox()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.UpdateEmployeeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitButton = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.ImageEditBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'EditButton
         '
-        Me.EditButton.Location = New System.Drawing.Point(311, 215)
+        Me.EditButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.EditButton.FlatAppearance.BorderSize = 0
+        Me.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditButton.ForeColor = System.Drawing.Color.White
+        Me.EditButton.Location = New System.Drawing.Point(311, 235)
         Me.EditButton.Name = "EditButton"
         Me.EditButton.Size = New System.Drawing.Size(75, 23)
         Me.EditButton.TabIndex = 9
         Me.EditButton.Text = "Edit"
-        Me.EditButton.UseVisualStyleBackColor = True
+        Me.EditButton.UseVisualStyleBackColor = False
         '
         'EditIdTextBox
         '
-        Me.EditIdTextBox.Location = New System.Drawing.Point(86, 217)
+        Me.EditIdTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.EditIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.EditIdTextBox.ForeColor = System.Drawing.Color.White
+        Me.EditIdTextBox.Location = New System.Drawing.Point(86, 237)
         Me.EditIdTextBox.Name = "EditIdTextBox"
-        Me.EditIdTextBox.Size = New System.Drawing.Size(219, 20)
+        Me.EditIdTextBox.Size = New System.Drawing.Size(219, 13)
         Me.EditIdTextBox.TabIndex = 8
         '
         'MemberIdLabel
         '
         Me.MemberIdLabel.AutoSize = True
-        Me.MemberIdLabel.Location = New System.Drawing.Point(21, 220)
+        Me.MemberIdLabel.ForeColor = System.Drawing.Color.White
+        Me.MemberIdLabel.Location = New System.Drawing.Point(21, 240)
         Me.MemberIdLabel.Name = "MemberIdLabel"
         Me.MemberIdLabel.Size = New System.Drawing.Size(63, 13)
         Me.MemberIdLabel.TabIndex = 12
@@ -82,7 +99,8 @@ Partial Class UpdateMember
         'MemberIdEditLabel
         '
         Me.MemberIdEditLabel.AutoSize = True
-        Me.MemberIdEditLabel.Location = New System.Drawing.Point(20, 253)
+        Me.MemberIdEditLabel.ForeColor = System.Drawing.Color.White
+        Me.MemberIdEditLabel.Location = New System.Drawing.Point(20, 273)
         Me.MemberIdEditLabel.Name = "MemberIdEditLabel"
         Me.MemberIdEditLabel.Size = New System.Drawing.Size(63, 13)
         Me.MemberIdEditLabel.TabIndex = 13
@@ -92,7 +110,7 @@ Partial Class UpdateMember
         '
         Me.MemberIdShowLabel.AutoSize = True
         Me.MemberIdShowLabel.ForeColor = System.Drawing.Color.Red
-        Me.MemberIdShowLabel.Location = New System.Drawing.Point(86, 253)
+        Me.MemberIdShowLabel.Location = New System.Drawing.Point(86, 273)
         Me.MemberIdShowLabel.Name = "MemberIdShowLabel"
         Me.MemberIdShowLabel.Size = New System.Drawing.Size(58, 13)
         Me.MemberIdShowLabel.TabIndex = 14
@@ -101,7 +119,8 @@ Partial Class UpdateMember
         'LastNameEditLabel
         '
         Me.LastNameEditLabel.AutoSize = True
-        Me.LastNameEditLabel.Location = New System.Drawing.Point(20, 284)
+        Me.LastNameEditLabel.ForeColor = System.Drawing.Color.White
+        Me.LastNameEditLabel.Location = New System.Drawing.Point(20, 304)
         Me.LastNameEditLabel.Name = "LastNameEditLabel"
         Me.LastNameEditLabel.Size = New System.Drawing.Size(64, 13)
         Me.LastNameEditLabel.TabIndex = 15
@@ -109,24 +128,29 @@ Partial Class UpdateMember
         '
         'LastNameEditTextBox
         '
-        Me.LastNameEditTextBox.ForeColor = System.Drawing.Color.Red
-        Me.LastNameEditTextBox.Location = New System.Drawing.Point(86, 281)
+        Me.LastNameEditTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.LastNameEditTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LastNameEditTextBox.ForeColor = System.Drawing.Color.White
+        Me.LastNameEditTextBox.Location = New System.Drawing.Point(86, 301)
         Me.LastNameEditTextBox.Name = "LastNameEditTextBox"
-        Me.LastNameEditTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.LastNameEditTextBox.Size = New System.Drawing.Size(100, 13)
         Me.LastNameEditTextBox.TabIndex = 16
         '
         'FirstNameEditTextBox
         '
-        Me.FirstNameEditTextBox.ForeColor = System.Drawing.Color.Red
-        Me.FirstNameEditTextBox.Location = New System.Drawing.Point(86, 307)
+        Me.FirstNameEditTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.FirstNameEditTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.FirstNameEditTextBox.ForeColor = System.Drawing.Color.White
+        Me.FirstNameEditTextBox.Location = New System.Drawing.Point(86, 327)
         Me.FirstNameEditTextBox.Name = "FirstNameEditTextBox"
-        Me.FirstNameEditTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.FirstNameEditTextBox.Size = New System.Drawing.Size(100, 13)
         Me.FirstNameEditTextBox.TabIndex = 18
         '
         'FirstNameEditLabel
         '
         Me.FirstNameEditLabel.AutoSize = True
-        Me.FirstNameEditLabel.Location = New System.Drawing.Point(20, 310)
+        Me.FirstNameEditLabel.ForeColor = System.Drawing.Color.White
+        Me.FirstNameEditLabel.Location = New System.Drawing.Point(20, 330)
         Me.FirstNameEditLabel.Name = "FirstNameEditLabel"
         Me.FirstNameEditLabel.Size = New System.Drawing.Size(63, 13)
         Me.FirstNameEditLabel.TabIndex = 17
@@ -134,16 +158,19 @@ Partial Class UpdateMember
         '
         'MiddleNameEditTextBox
         '
-        Me.MiddleNameEditTextBox.ForeColor = System.Drawing.Color.Red
-        Me.MiddleNameEditTextBox.Location = New System.Drawing.Point(86, 333)
+        Me.MiddleNameEditTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.MiddleNameEditTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.MiddleNameEditTextBox.ForeColor = System.Drawing.Color.White
+        Me.MiddleNameEditTextBox.Location = New System.Drawing.Point(86, 353)
         Me.MiddleNameEditTextBox.Name = "MiddleNameEditTextBox"
-        Me.MiddleNameEditTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.MiddleNameEditTextBox.Size = New System.Drawing.Size(100, 13)
         Me.MiddleNameEditTextBox.TabIndex = 20
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 333)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(9, 353)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(75, 13)
         Me.Label1.TabIndex = 19
@@ -152,7 +179,8 @@ Partial Class UpdateMember
         'DobEditLabel
         '
         Me.DobEditLabel.AutoSize = True
-        Me.DobEditLabel.Location = New System.Drawing.Point(213, 281)
+        Me.DobEditLabel.ForeColor = System.Drawing.Color.White
+        Me.DobEditLabel.Location = New System.Drawing.Point(213, 301)
         Me.DobEditLabel.Name = "DobEditLabel"
         Me.DobEditLabel.Size = New System.Drawing.Size(72, 13)
         Me.DobEditLabel.TabIndex = 21
@@ -162,7 +190,7 @@ Partial Class UpdateMember
         '
         Me.DateOfBirthPicker.CustomFormat = "yyy-MM-dd"
         Me.DateOfBirthPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateOfBirthPicker.Location = New System.Drawing.Point(291, 278)
+        Me.DateOfBirthPicker.Location = New System.Drawing.Point(291, 298)
         Me.DateOfBirthPicker.Name = "DateOfBirthPicker"
         Me.DateOfBirthPicker.Size = New System.Drawing.Size(95, 20)
         Me.DateOfBirthPicker.TabIndex = 22
@@ -172,7 +200,7 @@ Partial Class UpdateMember
         Me.GenderEditTextBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.GenderEditTextBox.FormattingEnabled = True
         Me.GenderEditTextBox.Items.AddRange(New Object() {"Male", "Female"})
-        Me.GenderEditTextBox.Location = New System.Drawing.Point(291, 304)
+        Me.GenderEditTextBox.Location = New System.Drawing.Point(291, 324)
         Me.GenderEditTextBox.Name = "GenderEditTextBox"
         Me.GenderEditTextBox.Size = New System.Drawing.Size(95, 21)
         Me.GenderEditTextBox.TabIndex = 24
@@ -180,7 +208,8 @@ Partial Class UpdateMember
         'AddGenderLabel
         '
         Me.AddGenderLabel.AutoSize = True
-        Me.AddGenderLabel.Location = New System.Drawing.Point(238, 307)
+        Me.AddGenderLabel.ForeColor = System.Drawing.Color.White
+        Me.AddGenderLabel.Location = New System.Drawing.Point(238, 327)
         Me.AddGenderLabel.Name = "AddGenderLabel"
         Me.AddGenderLabel.Size = New System.Drawing.Size(48, 13)
         Me.AddGenderLabel.TabIndex = 23
@@ -188,16 +217,19 @@ Partial Class UpdateMember
         '
         'AddressEditTextBox
         '
-        Me.AddressEditTextBox.ForeColor = System.Drawing.Color.Red
-        Me.AddressEditTextBox.Location = New System.Drawing.Point(86, 359)
+        Me.AddressEditTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.AddressEditTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.AddressEditTextBox.ForeColor = System.Drawing.Color.White
+        Me.AddressEditTextBox.Location = New System.Drawing.Point(86, 379)
         Me.AddressEditTextBox.Name = "AddressEditTextBox"
-        Me.AddressEditTextBox.Size = New System.Drawing.Size(300, 20)
+        Me.AddressEditTextBox.Size = New System.Drawing.Size(300, 13)
         Me.AddressEditTextBox.TabIndex = 26
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(32, 359)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(32, 379)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(51, 13)
         Me.Label2.TabIndex = 25
@@ -205,16 +237,19 @@ Partial Class UpdateMember
         '
         'ContactNoTextBox
         '
-        Me.ContactNoTextBox.ForeColor = System.Drawing.Color.Red
-        Me.ContactNoTextBox.Location = New System.Drawing.Point(291, 333)
+        Me.ContactNoTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.ContactNoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ContactNoTextBox.ForeColor = System.Drawing.Color.White
+        Me.ContactNoTextBox.Location = New System.Drawing.Point(291, 353)
         Me.ContactNoTextBox.Name = "ContactNoTextBox"
-        Me.ContactNoTextBox.Size = New System.Drawing.Size(95, 20)
+        Me.ContactNoTextBox.Size = New System.Drawing.Size(95, 13)
         Me.ContactNoTextBox.TabIndex = 28
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(219, 336)
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(219, 356)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(67, 13)
         Me.Label3.TabIndex = 27
@@ -226,26 +261,35 @@ Partial Class UpdateMember
         '
         'DeleteButton
         '
-        Me.DeleteButton.Location = New System.Drawing.Point(122, 489)
+        Me.DeleteButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.DeleteButton.FlatAppearance.BorderSize = 0
+        Me.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.DeleteButton.ForeColor = System.Drawing.Color.White
+        Me.DeleteButton.Location = New System.Drawing.Point(122, 509)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(70, 23)
         Me.DeleteButton.TabIndex = 30
         Me.DeleteButton.Text = "Delete"
-        Me.DeleteButton.UseVisualStyleBackColor = True
+        Me.DeleteButton.UseVisualStyleBackColor = False
         '
         'UpdateButton
         '
-        Me.UpdateButton.Location = New System.Drawing.Point(206, 489)
+        Me.UpdateButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.UpdateButton.FlatAppearance.BorderSize = 0
+        Me.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.UpdateButton.ForeColor = System.Drawing.Color.White
+        Me.UpdateButton.Location = New System.Drawing.Point(206, 509)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(70, 23)
         Me.UpdateButton.TabIndex = 31
         Me.UpdateButton.Text = "Update"
-        Me.UpdateButton.UseVisualStyleBackColor = True
+        Me.UpdateButton.UseVisualStyleBackColor = False
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(117, 449)
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(117, 469)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(97, 13)
         Me.Label4.TabIndex = 32
@@ -255,7 +299,7 @@ Partial Class UpdateMember
         '
         Me.DateLeftLabel.AutoSize = True
         Me.DateLeftLabel.ForeColor = System.Drawing.Color.Red
-        Me.DateLeftLabel.Location = New System.Drawing.Point(220, 449)
+        Me.DateLeftLabel.Location = New System.Drawing.Point(220, 469)
         Me.DateLeftLabel.Name = "DateLeftLabel"
         Me.DateLeftLabel.Size = New System.Drawing.Size(56, 13)
         Me.DateLeftLabel.TabIndex = 33
@@ -265,7 +309,7 @@ Partial Class UpdateMember
         '
         Me.EndDatePicker.CustomFormat = "yyyy-MM-dd"
         Me.EndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.EndDatePicker.Location = New System.Drawing.Point(257, 399)
+        Me.EndDatePicker.Location = New System.Drawing.Point(257, 419)
         Me.EndDatePicker.Name = "EndDatePicker"
         Me.EndDatePicker.Size = New System.Drawing.Size(95, 20)
         Me.EndDatePicker.TabIndex = 37
@@ -274,7 +318,7 @@ Partial Class UpdateMember
         '
         Me.StartDatePicker.CustomFormat = "yyyy-MM-dd"
         Me.StartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.StartDatePicker.Location = New System.Drawing.Point(82, 399)
+        Me.StartDatePicker.Location = New System.Drawing.Point(82, 419)
         Me.StartDatePicker.Name = "StartDatePicker"
         Me.StartDatePicker.Size = New System.Drawing.Size(95, 20)
         Me.StartDatePicker.TabIndex = 36
@@ -282,7 +326,8 @@ Partial Class UpdateMember
         'AddEndDateLabel
         '
         Me.AddEndDateLabel.AutoSize = True
-        Me.AddEndDateLabel.Location = New System.Drawing.Point(220, 405)
+        Me.AddEndDateLabel.ForeColor = System.Drawing.Color.White
+        Me.AddEndDateLabel.Location = New System.Drawing.Point(220, 425)
         Me.AddEndDateLabel.Name = "AddEndDateLabel"
         Me.AddEndDateLabel.Size = New System.Drawing.Size(26, 13)
         Me.AddEndDateLabel.TabIndex = 35
@@ -291,7 +336,8 @@ Partial Class UpdateMember
         'AddDateStartLabel
         '
         Me.AddDateStartLabel.AutoSize = True
-        Me.AddDateStartLabel.Location = New System.Drawing.Point(44, 405)
+        Me.AddDateStartLabel.ForeColor = System.Drawing.Color.White
+        Me.AddDateStartLabel.Location = New System.Drawing.Point(44, 425)
         Me.AddDateStartLabel.Name = "AddDateStartLabel"
         Me.AddDateStartLabel.Size = New System.Drawing.Size(29, 13)
         Me.AddDateStartLabel.TabIndex = 34
@@ -299,18 +345,101 @@ Partial Class UpdateMember
         '
         'ImageEditBox
         '
-        Me.ImageEditBox.Location = New System.Drawing.Point(12, 12)
+        Me.ImageEditBox.Location = New System.Drawing.Point(12, 32)
         Me.ImageEditBox.Name = "ImageEditBox"
         Me.ImageEditBox.Size = New System.Drawing.Size(374, 175)
         Me.ImageEditBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.ImageEditBox.TabIndex = 29
         Me.ImageEditBox.TabStop = False
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.Transparent
+        Me.MenuStrip1.Font = New System.Drawing.Font("Gadugi", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateEmployeeToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.MenuStrip1.Size = New System.Drawing.Size(400, 24)
+        Me.MenuStrip1.TabIndex = 60
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'UpdateEmployeeToolStripMenuItem
+        '
+        Me.UpdateEmployeeToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.UpdateEmployeeToolStripMenuItem.Name = "UpdateEmployeeToolStripMenuItem"
+        Me.UpdateEmployeeToolStripMenuItem.Size = New System.Drawing.Size(105, 20)
+        Me.UpdateEmployeeToolStripMenuItem.Text = "Update Member"
+        '
+        'ExitButton
+        '
+        Me.ExitButton.BackColor = System.Drawing.Color.Transparent
+        Me.ExitButton.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExitButton.ForeColor = System.Drawing.Color.White
+        Me.ExitButton.Location = New System.Drawing.Point(376, 0)
+        Me.ExitButton.Name = "ExitButton"
+        Me.ExitButton.Size = New System.Drawing.Size(24, 24)
+        Me.ExitButton.TabIndex = 68
+        Me.ExitButton.Text = "×"
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(86, 254)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(219, 2)
+        Me.Label6.TabIndex = 69
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label5.Location = New System.Drawing.Point(86, 317)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(100, 2)
+        Me.Label5.TabIndex = 70
+        '
+        'Label7
+        '
+        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label7.Location = New System.Drawing.Point(86, 343)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(100, 2)
+        Me.Label7.TabIndex = 71
+        '
+        'Label8
+        '
+        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label8.Location = New System.Drawing.Point(86, 369)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(100, 2)
+        Me.Label8.TabIndex = 72
+        '
+        'Label9
+        '
+        Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
+        Me.Label9.Location = New System.Drawing.Point(86, 395)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(300, 2)
+        Me.Label9.TabIndex = 73
+        '
         'UpdateMember
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(400, 522)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(400, 537)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.ExitButton)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.EndDatePicker)
         Me.Controls.Add(Me.StartDatePicker)
         Me.Controls.Add(Me.AddEndDateLabel)
@@ -339,9 +468,12 @@ Partial Class UpdateMember
         Me.Controls.Add(Me.MemberIdLabel)
         Me.Controls.Add(Me.EditButton)
         Me.Controls.Add(Me.EditIdTextBox)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "UpdateMember"
         Me.Text = "Update Member"
         CType(Me.ImageEditBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -375,4 +507,12 @@ Partial Class UpdateMember
     Friend WithEvents StartDatePicker As DateTimePicker
     Friend WithEvents AddEndDateLabel As Label
     Friend WithEvents AddDateStartLabel As Label
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents UpdateEmployeeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitButton As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
 End Class
