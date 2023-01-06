@@ -27,16 +27,12 @@ Partial Class AddMember
         Me.AddMiddleNameLabel = New System.Windows.Forms.Label()
         Me.AddDobLabel = New System.Windows.Forms.Label()
         Me.AddGenderLabel = New System.Windows.Forms.Label()
-        Me.AddDateStartLabel = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.AddEndDateLabel = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DateOfBirthPicker = New System.Windows.Forms.DateTimePicker()
         Me.LastNameTextBox = New System.Windows.Forms.TextBox()
         Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
         Me.GenderBox = New System.Windows.Forms.ComboBox()
-        Me.StartDatePicker = New System.Windows.Forms.DateTimePicker()
-        Me.EndDatePicker = New System.Windows.Forms.DateTimePicker()
         Me.AddMemberButton = New System.Windows.Forms.Button()
         Me.CancelAddButton = New System.Windows.Forms.Button()
         Me.ClearFieldsButton = New System.Windows.Forms.Button()
@@ -56,6 +52,9 @@ Partial Class AddMember
         Me.Label10 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MemberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PackageComboBox = New System.Windows.Forms.ComboBox()
+        Me.DescriptionLabel = New System.Windows.Forms.Label()
+        Me.LocationComboBox = New System.Windows.Forms.ComboBox()
         CType(Me.MemberImagePreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -110,16 +109,6 @@ Partial Class AddMember
         Me.AddGenderLabel.TabIndex = 4
         Me.AddGenderLabel.Text = "Gender"
         '
-        'AddDateStartLabel
-        '
-        Me.AddDateStartLabel.AutoSize = True
-        Me.AddDateStartLabel.ForeColor = System.Drawing.Color.White
-        Me.AddDateStartLabel.Location = New System.Drawing.Point(113, 385)
-        Me.AddDateStartLabel.Name = "AddDateStartLabel"
-        Me.AddDateStartLabel.Size = New System.Drawing.Size(29, 13)
-        Me.AddDateStartLabel.TabIndex = 5
-        Me.AddDateStartLabel.Text = "Start"
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -129,16 +118,6 @@ Partial Class AddMember
         Me.Label1.Size = New System.Drawing.Size(64, 13)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Membership"
-        '
-        'AddEndDateLabel
-        '
-        Me.AddEndDateLabel.AutoSize = True
-        Me.AddEndDateLabel.ForeColor = System.Drawing.Color.White
-        Me.AddEndDateLabel.Location = New System.Drawing.Point(114, 411)
-        Me.AddEndDateLabel.Name = "AddEndDateLabel"
-        Me.AddEndDateLabel.Size = New System.Drawing.Size(26, 13)
-        Me.AddEndDateLabel.TabIndex = 7
-        Me.AddEndDateLabel.Text = "End"
         '
         'Label2
         '
@@ -181,33 +160,15 @@ Partial Class AddMember
         '
         'GenderBox
         '
-        Me.GenderBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
-        Me.GenderBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.GenderBox.BackColor = System.Drawing.Color.Black
         Me.GenderBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.GenderBox.ForeColor = System.Drawing.Color.White
         Me.GenderBox.FormattingEnabled = True
         Me.GenderBox.Items.AddRange(New Object() {"Male", "Female"})
         Me.GenderBox.Location = New System.Drawing.Point(151, 182)
         Me.GenderBox.Name = "GenderBox"
         Me.GenderBox.Size = New System.Drawing.Size(200, 21)
         Me.GenderBox.TabIndex = 14
-        '
-        'StartDatePicker
-        '
-        Me.StartDatePicker.CustomFormat = "yyyy-MM-dd"
-        Me.StartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.StartDatePicker.Location = New System.Drawing.Point(151, 379)
-        Me.StartDatePicker.Name = "StartDatePicker"
-        Me.StartDatePicker.Size = New System.Drawing.Size(95, 20)
-        Me.StartDatePicker.TabIndex = 15
-        '
-        'EndDatePicker
-        '
-        Me.EndDatePicker.CustomFormat = "yyyy-MM-dd"
-        Me.EndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.EndDatePicker.Location = New System.Drawing.Point(151, 405)
-        Me.EndDatePicker.Name = "EndDatePicker"
-        Me.EndDatePicker.Size = New System.Drawing.Size(95, 20)
-        Me.EndDatePicker.TabIndex = 16
         '
         'AddMemberButton
         '
@@ -283,9 +244,9 @@ Partial Class AddMember
         Me.AddressTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
         Me.AddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.AddressTextBox.ForeColor = System.Drawing.Color.White
-        Me.AddressTextBox.Location = New System.Drawing.Point(151, 236)
+        Me.AddressTextBox.Location = New System.Drawing.Point(260, 236)
         Me.AddressTextBox.Name = "AddressTextBox"
-        Me.AddressTextBox.Size = New System.Drawing.Size(200, 13)
+        Me.AddressTextBox.Size = New System.Drawing.Size(91, 13)
         Me.AddressTextBox.TabIndex = 24
         '
         'Label4
@@ -381,9 +342,9 @@ Partial Class AddMember
         '
         Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(151, 252)
+        Me.Label10.Location = New System.Drawing.Point(260, 252)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(200, 2)
+        Me.Label10.Size = New System.Drawing.Size(91, 2)
         Me.Label10.TabIndex = 57
         '
         'MenuStrip1
@@ -406,12 +367,45 @@ Partial Class AddMember
         Me.MemberToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
         Me.MemberToolStripMenuItem.Text = "Add Member"
         '
+        'PackageComboBox
+        '
+        Me.PackageComboBox.FormattingEnabled = True
+        Me.PackageComboBox.Location = New System.Drawing.Point(125, 356)
+        Me.PackageComboBox.Name = "PackageComboBox"
+        Me.PackageComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.PackageComboBox.TabIndex = 59
+        '
+        'DescriptionLabel
+        '
+        Me.DescriptionLabel.AutoSize = True
+        Me.DescriptionLabel.ForeColor = System.Drawing.Color.White
+        Me.DescriptionLabel.Location = New System.Drawing.Point(98, 409)
+        Me.DescriptionLabel.Name = "DescriptionLabel"
+        Me.DescriptionLabel.Size = New System.Drawing.Size(64, 13)
+        Me.DescriptionLabel.TabIndex = 60
+        Me.DescriptionLabel.Text = "Membership"
+        '
+        'LocationComboBox
+        '
+        Me.LocationComboBox.BackColor = System.Drawing.Color.Black
+        Me.LocationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.LocationComboBox.ForeColor = System.Drawing.Color.White
+        Me.LocationComboBox.FormattingEnabled = True
+        Me.LocationComboBox.Items.AddRange(New Object() {"Paranaque", "Las Piñas"})
+        Me.LocationComboBox.Location = New System.Drawing.Point(151, 233)
+        Me.LocationComboBox.Name = "LocationComboBox"
+        Me.LocationComboBox.Size = New System.Drawing.Size(103, 21)
+        Me.LocationComboBox.TabIndex = 61
+        '
         'AddMember
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(460, 483)
+        Me.Controls.Add(Me.LocationComboBox)
+        Me.Controls.Add(Me.DescriptionLabel)
+        Me.Controls.Add(Me.PackageComboBox)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.Label10)
@@ -430,16 +424,12 @@ Partial Class AddMember
         Me.Controls.Add(Me.ClearFieldsButton)
         Me.Controls.Add(Me.CancelAddButton)
         Me.Controls.Add(Me.AddMemberButton)
-        Me.Controls.Add(Me.EndDatePicker)
-        Me.Controls.Add(Me.StartDatePicker)
         Me.Controls.Add(Me.GenderBox)
         Me.Controls.Add(Me.FirstNameTextBox)
         Me.Controls.Add(Me.LastNameTextBox)
         Me.Controls.Add(Me.DateOfBirthPicker)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.AddEndDateLabel)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.AddDateStartLabel)
         Me.Controls.Add(Me.AddGenderLabel)
         Me.Controls.Add(Me.AddDobLabel)
         Me.Controls.Add(Me.AddMiddleNameLabel)
@@ -447,7 +437,7 @@ Partial Class AddMember
         Me.Controls.Add(Me.AddLastNameLabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AddMember"
-        Me.Text = "Add Member"
+        Me.Text = " "
         CType(Me.MemberImagePreview, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
@@ -461,16 +451,12 @@ Partial Class AddMember
     Friend WithEvents AddMiddleNameLabel As Label
     Friend WithEvents AddDobLabel As Label
     Friend WithEvents AddGenderLabel As Label
-    Friend WithEvents AddDateStartLabel As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents AddEndDateLabel As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents DateOfBirthPicker As DateTimePicker
     Friend WithEvents LastNameTextBox As TextBox
     Friend WithEvents FirstNameTextBox As TextBox
     Friend WithEvents GenderBox As ComboBox
-    Friend WithEvents StartDatePicker As DateTimePicker
-    Friend WithEvents EndDatePicker As DateTimePicker
     Friend WithEvents AddMemberButton As Button
     Friend WithEvents CancelAddButton As Button
     Friend WithEvents ClearFieldsButton As Button
@@ -490,4 +476,7 @@ Partial Class AddMember
     Friend WithEvents Label10 As Label
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents MemberToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PackageComboBox As ComboBox
+    Friend WithEvents DescriptionLabel As Label
+    Friend WithEvents LocationComboBox As ComboBox
 End Class

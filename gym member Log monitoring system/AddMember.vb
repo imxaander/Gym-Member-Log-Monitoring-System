@@ -2,19 +2,31 @@
 Imports System.Configuration
 Imports System.Text.RegularExpressions
 Imports System.IO
+Imports System.Diagnostics
+Imports Org.BouncyCastle.Utilities
+
 Public Class AddMember
+    Public startDate
+    Public endDate
+    Public PackageDescription
     Private Sub AddMember_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Set restrictions to date pickers
         DateOfBirthPicker.MaxDate = DateTime.Now
 
         'StartDatePicker.MinDate = DateTime.Now
         'EndDatePicker.MinDate = DateTime.Now
+
+        Dim DatAcc As New DataAccess()
+        Dim arr = DatAcc.GetPackagesDuration()
+        PackageComboBox.DataSource = arr
+
+        Debug.WriteLine(conn.ConnectionString)
+
     End Sub
     Private Sub AddMemberButton_Click(sender As Object, e As EventArgs) Handles AddMemberButton.Click
         If CheckAddFields() Then
 
             Dim sqlCommand = New SqlCommand("SELECT TOP 1 * FROM [Member] ORDER BY ID DESC", conn)
-
 
             'create values for member information'
             Dim memberId = GenerateUID(9)
@@ -24,9 +36,9 @@ Public Class AddMember
             Dim dob = DateOfBirthPicker.Text
             Dim gender = GenderBox.Text
             Dim contact = ContactTextBox.Text
-            Dim address = AddressTextBox.Text
-            Dim dateStart = StartDatePicker.Text
-            Dim dateEnd = EndDatePicker.Text
+            Dim address = LocationComboBox.Text + ", " + AddressTextBox.Text
+            Dim dateStart = startDate
+            Dim dateEnd = endDate
 
             'image insertion
             Dim ms As New MemoryStream
@@ -35,7 +47,7 @@ Public Class AddMember
             Dim image = ms.ToArray()
             Try
                 Dim sql = "INSERT INTO [Member]([member_id],[last_name],[first_name],[middle_name],[dob],[gender],[contact],[address],[date_Start],[date_End], [image]) VALUES('" & memberId & "', '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & address & "','" & dateStart & "','" & dateEnd & "', @img)"
-
+                conn.ConnectionString = connectionString
                 Dim sqlcom As New SqlCommand(sql, conn)
                 sqlcom.Parameters.Add("@img", SqlDbType.Image).Value = image
                 conn.Open()
@@ -100,8 +112,6 @@ Public Class AddMember
         GenderBox.Text = ""
         ContactTextBox.Text = ""
         AddressTextBox.Text = ""
-        StartDatePicker.Text = ""
-        EndDatePicker.Text = ""
     End Sub
 
     Private Sub InsertImageButton_Click(sender As Object, e As EventArgs) Handles InsertImageButton.Click
@@ -157,5 +167,31 @@ Public Class AddMember
 
     End Sub
 
+    Private Sub PackageComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PackageComboBox.SelectedIndexChanged
+
+        Dim durationString As String = PackageComboBox.Text
+        Dim durationMonths = Integer.Parse(Regex.Replace(durationString, "[^\d]", ""))
+
+        startDate = Date.Now
+        endDate = Date.Now.AddMonths(durationMonths)
+
+    End Sub
+
 #End Region
+End Class
+
+Class DataAccess
+    Public Function GetPackagesDuration() As String()
+        Dim tb As New DataTable
+        Dim SQL As String = "SELECT * from Package;"
+        Using conn
+            Using cmd As New SqlCommand(SQL, conn)
+                conn.Open()
+                tb.Load(cmd.ExecuteReader)
+                conn.Close()
+            End Using
+        End Using
+        Dim durations = tb.AsEnumerable().Select(Function(x) x.Field(Of String)("duration")).ToArray()
+        Return durations
+    End Function
 End Class

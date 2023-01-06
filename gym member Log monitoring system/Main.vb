@@ -33,6 +33,16 @@ Public Class Main
         LoadMemberOverView()
         LoadEmployeeOverView()
 
+        Using conn As New SqlConnection(connectionString)
+            conn.Open()
+
+            Dim sql As String = "INSERT INTO Test (date_number_column)
+VALUES (CONVERT(VARCHAR, GETDATE(), 103) + '_' +
+        CONVERT(VARCHAR, (SELECT COUNT(*) FROM Test WHERE date_column = GETDATE())))"
+            Dim cmd As New SqlCommand(sql, conn)
+
+            cmd.ExecuteReader()
+        End Using
     End Sub
     Public Sub LoadMemberOverView()
 
@@ -54,8 +64,43 @@ Public Class Main
         'load table values to the grid view
         membersGridView.DataSource = dtMembers
 
+        'change color of row depending on how many days left
+        Dim redWarningDays = 7
+        Dim orangeWarningDays = 14
+        Dim dateToday = Date.Today
 
+        For i = 0 To membersGridView.Rows.Count - 1
+            If redWarningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
+                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Red
+            ElseIf orangeWarningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
+                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Orange
+            End If
+        Next
 
+        'change table columns to nicer name
+        membersGridView.Columns("member_id").HeaderCell.Value = "Member ID"
+        membersGridView.Columns("last_name").HeaderCell.Value = "Last Name"
+        membersGridView.Columns("first_name").HeaderCell.Value = "First Name"
+        membersGridView.Columns("middle_name").HeaderCell.Value = "Middle Name"
+        membersGridView.Columns("dob").HeaderCell.Value = "Date of Birth"
+        membersGridView.Columns("gender").HeaderCell.Value = "Gender"
+        membersGridView.Columns("contact").HeaderCell.Value = "Contact No"
+        membersGridView.Columns("address").HeaderCell.Value = "Address"
+        membersGridView.Columns("date_Start").HeaderCell.Value = "Started Date"
+        membersGridView.Columns("date_End").HeaderCell.Value = "Ending Date"
+        membersGridView.Columns("image").HeaderCell.Value = "Image"
+
+        'image resizing 
+    End Sub
+    Private Sub membersGridView_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles membersGridView.CellFormatting
+        Debug.WriteLine("Hi")
+        If e.ColumnIndex = 0 AndAlso e.Value IsNot Nothing AndAlso membersGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).ValueType Is GetType(System.Drawing.Image) Then
+            Dim image As Image = DirectCast(e.Value, Image)
+            e.Value = image
+            membersGridView.Rows(e.RowIndex).Height = image.Height
+            membersGridView.Columns(e.ColumnIndex).Width = image.Width
+            Debug.WriteLine("I think this should work")
+        End If
     End Sub
     Public Sub LoadEmployeeOverView()
         'get values of from the table (employee)
@@ -76,17 +121,7 @@ Public Class Main
         'load values to the grid view
         employeesGridView.DataSource = dtEmployees
 
-        'change color of row depending on how many days left
-        Dim redWarningDays = 7
-        Dim orangeWarningDays = 14
-        Dim dateToday = Date.Today
-        For i = 0 To membersGridView.Rows.Count - 1
-            If redWarningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
-                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Red
-            ElseIf orangeWarningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
-                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Orange
-            End If
-        Next
+
     End Sub
 
     Public Sub FilterMemberDataGridView()
@@ -94,12 +129,11 @@ Public Class Main
         Dim colName As String = MemberFilterColBox.Text
 
         Dim dtMembers As New DataTable
-
         Dim sql As String
         If MemberSearchTextBox.Text = "" Or MemberFilterColBox.Text = "" Then
             sql = "SELECT * FROM [Member]"
         Else
-            sql = "SELECT * FROM [Member] WHERE " & colName & "=@colValue"
+            sql = "SELECT * FROM [Member] WHERE " & colName & " LIKE @colValue"
         End If
         Dim sqlCom As New SqlCommand(sql, conn)
         sqlCom.Parameters.Add("@colValue", SqlDbType.VarChar).Value = colValue
@@ -139,6 +173,7 @@ Public Class Main
         employeesGridView.DataSource = dtEmployees
         conn.Close()
     End Sub
+
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles MemberSearchButton.Click
         FilterMemberDataGridView()
     End Sub
@@ -219,10 +254,6 @@ Public Class Main
             MoveForm = False
             Me.Cursor = Cursors.Default
         End If
-
-    End Sub
-
-    Private Sub membersGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles membersGridView.CellContentClick
 
     End Sub
 

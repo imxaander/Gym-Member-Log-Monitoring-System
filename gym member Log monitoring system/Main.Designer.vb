@@ -181,7 +181,7 @@ Partial Class Main
         '
         Me.MemberFilterColBox.FormattingEnabled = True
         Me.MemberFilterColBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.MemberFilterColBox.Items.AddRange(New Object() {"last_name", "first_name", "middle_name"})
+        Me.MemberFilterColBox.Items.AddRange(New Object() {"last_name", "first_name", "middle_name", "gender"})
         Me.MemberFilterColBox.Location = New System.Drawing.Point(532, 8)
         Me.MemberFilterColBox.Name = "MemberFilterColBox"
         Me.MemberFilterColBox.Size = New System.Drawing.Size(86, 22)
