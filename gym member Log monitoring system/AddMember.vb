@@ -46,7 +46,11 @@ Public Class AddMember
 
             Dim image = ms.ToArray()
             Try
-                Dim sql = "INSERT INTO [Member]([member_id],[last_name],[first_name],[middle_name],[dob],[gender],[contact],[address],[date_Start],[date_End], [image]) VALUES('" & memberId & "', '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & address & "','" & dateStart & "','" & dateEnd & "', @img)"
+                Dim d As Date = Date.Now()
+                Dim df As String = d.ToString("yyyy_MM")
+                Dim sql = " INSERT INTO [Member]([member_id],[last_name],[first_name],[middle_name],[dob],[gender],[contact],[address],[date_Start],[date_End], [image]) 
+                            VALUES('" & df & "' + '/' +
+                                CONVERT(VARCHAR, (SELECT COUNT(*) FROM Member WHERE date_Start = CONVERT(VARCHAR, GETDATE(), 103))), '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & address & "','" & dateStart & "','" & dateEnd & "', @img)"
                 conn.ConnectionString = connectionString
                 Dim sqlcom As New SqlCommand(sql, conn)
                 sqlcom.Parameters.Add("@img", SqlDbType.Image).Value = image

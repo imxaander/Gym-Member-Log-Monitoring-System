@@ -35,10 +35,13 @@ Public Class Main
 
         Using conn As New SqlConnection(connectionString)
             conn.Open()
-
-            Dim sql As String = "INSERT INTO Test (date_number_column)
-VALUES (CONVERT(VARCHAR, GETDATE(), 103) + '_' +
-        CONVERT(VARCHAR, (SELECT COUNT(*) FROM Test WHERE date_column = GETDATE())))"
+            Dim d As Date = Date.Now()
+            Dim df As String = d.ToString("yyyy_MM")
+            Dim sql As String = "INSERT INTO Test 
+                                VALUES ('" & df & "' + '/' +
+                                        CONVERT(VARCHAR, (SELECT COUNT(*) FROM Test WHERE date_column = CONVERT(VARCHAR, GETDATE(), 103))),
+                                        CONVERT(VARCHAR, GETDATE(), 103)
+                                 )"
             Dim cmd As New SqlCommand(sql, conn)
 
             cmd.ExecuteReader()
