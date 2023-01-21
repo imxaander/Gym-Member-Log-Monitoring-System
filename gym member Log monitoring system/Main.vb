@@ -3,6 +3,8 @@ Imports System.Configuration
 Imports System.IO
 Imports System.Data
 Imports GemBox.Spreadsheet
+Imports System.Windows
+Imports System.Drawing
 
 
 Public Class Main
@@ -177,6 +179,18 @@ Public Class Main
         conn.Close()
     End Sub
 
+    Private Sub membersGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles membersGridView.CellClick
+        If membersGridView.CurrentCell.Value IsNot Nothing AndAlso TypeOf membersGridView.CurrentCell.Value Is Image Then
+            Dim img As Image = CType(membersGridView.CurrentCell.Value, Image)
+            Dim form2 As New ImageView()
+            form2.BackgroundImage = img
+            form2.Show()
+        Else
+            'Show message or do something else
+        End If
+    End Sub
+
+
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles MemberSearchButton.Click
         FilterMemberDataGridView()
     End Sub
@@ -227,36 +241,7 @@ Public Class Main
     '
     ' // By Elektro 
 
-    Public MoveForm As Boolean
-    Public MoveForm_MousePosition As Point
-
-    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
-
-        If e.Button = MouseButtons.Left Then
-            MoveForm = True
-            Me.Cursor = Cursors.NoMove2D
-            MoveForm_MousePosition = e.Location
-        End If
-
-    End Sub
-
-    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
-
-        If MoveForm Then
-            Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
-        End If
-
-    End Sub
-
-    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
-
-        If e.Button = MouseButtons.Left Then
-            MoveForm = False
-            Me.Cursor = Cursors.Default
-        End If
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
 
     End Sub
 

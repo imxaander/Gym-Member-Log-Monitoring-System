@@ -142,6 +142,9 @@ Partial Class Main
         '
         'TabControl1
         '
+        Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.ViewMembersTab)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -170,7 +173,7 @@ Partial Class Main
         '
         'Label3
         '
-        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
         Me.Label3.Location = New System.Drawing.Point(391, 26)
         Me.Label3.Name = "Label3"
@@ -179,6 +182,7 @@ Partial Class Main
         '
         'MemberFilterColBox
         '
+        Me.MemberFilterColBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MemberFilterColBox.FormattingEnabled = True
         Me.MemberFilterColBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.MemberFilterColBox.Items.AddRange(New Object() {"last_name", "first_name", "middle_name", "gender"})
@@ -189,6 +193,7 @@ Partial Class Main
         '
         'BySearchLabel
         '
+        Me.BySearchLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BySearchLabel.AutoSize = True
         Me.BySearchLabel.ForeColor = System.Drawing.Color.White
         Me.BySearchLabel.Location = New System.Drawing.Point(497, 10)
@@ -199,6 +204,7 @@ Partial Class Main
         '
         'MemberSearchButton
         '
+        Me.MemberSearchButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MemberSearchButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
         Me.MemberSearchButton.FlatAppearance.BorderSize = 0
         Me.MemberSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -212,6 +218,7 @@ Partial Class Main
         '
         'MemberSearchTextBox
         '
+        Me.MemberSearchTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MemberSearchTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.MemberSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MemberSearchTextBox.ForeColor = System.Drawing.Color.White
@@ -237,13 +244,16 @@ Partial Class Main
         '
         Me.membersGridView.AllowUserToAddRows = False
         Me.membersGridView.AllowUserToDeleteRows = False
+        Me.membersGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.membersGridView.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.membersGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.membersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.membersGridView.Location = New System.Drawing.Point(6, 34)
+        Me.membersGridView.Location = New System.Drawing.Point(6, 35)
         Me.membersGridView.Name = "membersGridView"
         Me.membersGridView.ReadOnly = True
-        Me.membersGridView.Size = New System.Drawing.Size(612, 321)
+        Me.membersGridView.Size = New System.Drawing.Size(612, 320)
         Me.membersGridView.TabIndex = 0
         '
         'TabPage2
@@ -265,7 +275,7 @@ Partial Class Main
         '
         'Label2
         '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(391, 26)
         Me.Label2.Name = "Label2"
@@ -274,6 +284,7 @@ Partial Class Main
         '
         'EmployeeFilterColBox
         '
+        Me.EmployeeFilterColBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.EmployeeFilterColBox.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeeFilterColBox.FormattingEnabled = True
         Me.EmployeeFilterColBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
@@ -285,6 +296,7 @@ Partial Class Main
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(497, 10)
@@ -295,6 +307,7 @@ Partial Class Main
         '
         'EmployeeSearchButton
         '
+        Me.EmployeeSearchButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.EmployeeSearchButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
         Me.EmployeeSearchButton.FlatAppearance.BorderSize = 0
         Me.EmployeeSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -309,6 +322,7 @@ Partial Class Main
         '
         'EmployeeSearchTextBox
         '
+        Me.EmployeeSearchTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.EmployeeSearchTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.EmployeeSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.EmployeeSearchTextBox.Font = New System.Drawing.Font("Gadugi", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -336,6 +350,9 @@ Partial Class Main
         '
         Me.employeesGridView.AllowUserToAddRows = False
         Me.employeesGridView.AllowUserToDeleteRows = False
+        Me.employeesGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.employeesGridView.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.employeesGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.employeesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -347,6 +364,7 @@ Partial Class Main
         '
         'ExitButtonMain
         '
+        Me.ExitButtonMain.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ExitButtonMain.BackColor = System.Drawing.Color.Transparent
         Me.ExitButtonMain.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExitButtonMain.ForeColor = System.Drawing.Color.White
@@ -373,6 +391,7 @@ Partial Class Main
         Me.Name = "Main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gym Management"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)

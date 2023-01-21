@@ -55,6 +55,7 @@ Partial Class AddMember
         Me.PackageComboBox = New System.Windows.Forms.ComboBox()
         Me.DescriptionLabel = New System.Windows.Forms.Label()
         Me.LocationComboBox = New System.Windows.Forms.ComboBox()
+        Me.NumPrefixBox = New System.Windows.Forms.ComboBox()
         CType(Me.MemberImagePreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -234,9 +235,9 @@ Partial Class AddMember
         Me.ContactTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
         Me.ContactTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ContactTextBox.ForeColor = System.Drawing.Color.White
-        Me.ContactTextBox.Location = New System.Drawing.Point(151, 210)
+        Me.ContactTextBox.Location = New System.Drawing.Point(223, 210)
         Me.ContactTextBox.Name = "ContactTextBox"
-        Me.ContactTextBox.Size = New System.Drawing.Size(200, 13)
+        Me.ContactTextBox.Size = New System.Drawing.Size(128, 13)
         Me.ContactTextBox.TabIndex = 22
         '
         'AddressTextBox
@@ -333,9 +334,9 @@ Partial Class AddMember
         '
         Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(2, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(151, 226)
+        Me.Label9.Location = New System.Drawing.Point(223, 226)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(200, 2)
+        Me.Label9.Size = New System.Drawing.Size(125, 2)
         Me.Label9.TabIndex = 56
         '
         'Label10
@@ -397,12 +398,25 @@ Partial Class AddMember
         Me.LocationComboBox.Size = New System.Drawing.Size(103, 21)
         Me.LocationComboBox.TabIndex = 61
         '
+        'NumPrefixBox
+        '
+        Me.NumPrefixBox.BackColor = System.Drawing.Color.Black
+        Me.NumPrefixBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.NumPrefixBox.ForeColor = System.Drawing.Color.White
+        Me.NumPrefixBox.FormattingEnabled = True
+        Me.NumPrefixBox.Items.AddRange(New Object() {"0817", "0905", "0906", "0908", "0909", "0910", "0912", "0915", "0916", "0917", "0918", "0919", "0920", "0921", "0922", "0923", "0924", "0925", "0926", "0927", "0928", "0929", "0930", "0931", "0932", "0934", "0935", "0936", "0937", "0938", "0939", "0940", "0941", "0942", "0943", "0945", "0946", "0947", "0948", "0949", "0950", "0951", "0953", "0954", "0955", "0956", "0961", "0965", "0966", "0967", "0973", "0974", "0975", "0976", "0977", "0978", "0979", "0994", "0995", "0996", "0997", "0998", "0999"})
+        Me.NumPrefixBox.Location = New System.Drawing.Point(151, 207)
+        Me.NumPrefixBox.Name = "NumPrefixBox"
+        Me.NumPrefixBox.Size = New System.Drawing.Size(66, 21)
+        Me.NumPrefixBox.TabIndex = 62
+        '
         'AddMember
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(460, 483)
+        Me.Controls.Add(Me.NumPrefixBox)
         Me.Controls.Add(Me.LocationComboBox)
         Me.Controls.Add(Me.DescriptionLabel)
         Me.Controls.Add(Me.PackageComboBox)
@@ -479,4 +493,5 @@ Partial Class AddMember
     Friend WithEvents PackageComboBox As ComboBox
     Friend WithEvents DescriptionLabel As Label
     Friend WithEvents LocationComboBox As ComboBox
+    Friend WithEvents NumPrefixBox As ComboBox
 End Class

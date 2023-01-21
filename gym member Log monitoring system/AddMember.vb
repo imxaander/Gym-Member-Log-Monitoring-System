@@ -35,7 +35,7 @@ Public Class AddMember
             Dim middleName = MiddleNameTextBox.Text
             Dim dob = DateOfBirthPicker.Text
             Dim gender = GenderBox.Text
-            Dim contact = ContactTextBox.Text
+            Dim contact = NumPrefixBox.Text + ContactTextBox.Text
             Dim address = LocationComboBox.Text + ", " + AddressTextBox.Text
             Dim dateStart = startDate
             Dim dateEnd = endDate
@@ -50,7 +50,8 @@ Public Class AddMember
                 Dim df As String = d.ToString("yyyy_MM")
                 Dim sql = " INSERT INTO [Member]([member_id],[last_name],[first_name],[middle_name],[dob],[gender],[contact],[address],[date_Start],[date_End], [image]) 
                             VALUES('" & df & "' + '/' +
-                                CONVERT(VARCHAR, (SELECT COUNT(*) FROM Member WHERE date_Start = CONVERT(VARCHAR, GETDATE(), 103))), '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & address & "','" & dateStart & "','" & dateEnd & "', @img)"
+                                CONVERT(VARCHAR, (SELECT COUNT(*) FROM Member WHERE date_Start = CAST(GETDATE() AS DATE))), '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & address & "','" & dateStart & "','" & dateEnd & "', @img)"
+                Debug.WriteLine(sql)
                 conn.ConnectionString = connectionString
                 Dim sqlcom As New SqlCommand(sql, conn)
                 sqlcom.Parameters.Add("@img", SqlDbType.Image).Value = image
@@ -72,7 +73,7 @@ Public Class AddMember
         Dim valid As Boolean
 
         Dim contactRegex As Regex = New Regex("^(09|\+639)\d{9}$")
-        Dim contactRegexMatch As Match = contactRegex.Match(ContactTextBox.Text)
+        Dim contactRegexMatch As Match = contactRegex.Match(NumPrefixBox.Text + ContactTextBox.Text)
 
         If LastNameTextBox.Text = "" Then
             MessageBox.Show("Missing Field : " + "Last Name")
@@ -176,8 +177,8 @@ Public Class AddMember
         Dim durationString As String = PackageComboBox.Text
         Dim durationMonths = Integer.Parse(Regex.Replace(durationString, "[^\d]", ""))
 
-        startDate = Date.Now
-        endDate = Date.Now.AddMonths(durationMonths)
+        startDate = Date.Now.ToString("yyyy-MM-dd")
+        endDate = Date.Now.AddMonths(durationMonths).ToString("yyyy-MM-dd")
 
     End Sub
 
