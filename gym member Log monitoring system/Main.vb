@@ -37,7 +37,7 @@ Public Class Main
         'ui
         'membersGridView.Dock = DockStyle.Fill
         'employeesGridView.Dock = DockStyle.Fill
-        'membersGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        membersGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         'membersGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
     End Sub
@@ -90,12 +90,8 @@ Public Class Main
         'image resizing 
     End Sub
     Private Sub membersGridView_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles membersGridView.CellFormatting
-        If e.ColumnIndex = 0 AndAlso e.Value IsNot Nothing AndAlso membersGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).ValueType Is GetType(System.Drawing.Image) Then
-            Dim image As Image = DirectCast(e.Value, Image)
-            e.Value = image
-            membersGridView.Rows(e.RowIndex).Height = image.Height
-            membersGridView.Columns(e.ColumnIndex).Width = image.Width
-            Debug.WriteLine("I think this should work")
+        If TypeOf e.Value Is Byte() Then
+            membersGridView.Columns(0).Width = 50
         End If
     End Sub
     Public Sub LoadEmployeeOverView()
