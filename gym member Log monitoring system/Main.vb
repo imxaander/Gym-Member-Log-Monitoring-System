@@ -4,8 +4,7 @@ Imports System.IO
 Imports System.Data
 Imports GemBox.Spreadsheet
 Imports System.Windows
-Imports System.Drawing
-
+Imports System.Net.Http
 
 Public Class Main
     Public Property userInfoReader As SqlDataReader
@@ -98,7 +97,6 @@ Public Class Main
         'image resizing 
     End Sub
     Private Sub membersGridView_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles membersGridView.CellFormatting
-        Debug.WriteLine("Hi")
         If e.ColumnIndex = 0 AndAlso e.Value IsNot Nothing AndAlso membersGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).ValueType Is GetType(System.Drawing.Image) Then
             Dim image As Image = DirectCast(e.Value, Image)
             e.Value = image
@@ -179,16 +177,7 @@ Public Class Main
         conn.Close()
     End Sub
 
-    Private Sub membersGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles membersGridView.CellClick
-        If membersGridView.CurrentCell.Value IsNot Nothing AndAlso TypeOf membersGridView.CurrentCell.Value Is Image Then
-            Dim img As Image = CType(membersGridView.CurrentCell.Value, Image)
-            Dim form2 As New ImageView()
-            form2.BackgroundImage = img
-            form2.Show()
-        Else
-            'Show message or do something else
-        End If
-    End Sub
+
 
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles MemberSearchButton.Click
@@ -235,6 +224,25 @@ Public Class Main
         UpdateMember.Close()
     End Sub
 
+    Private Sub membersGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles membersGridView.CellClick
+
+        If membersGridView.CurrentCell.Value IsNot Nothing AndAlso TypeOf membersGridView.CurrentCell.Value Is Byte() Then
+            Dim byteArray As Byte() = membersGridView.CurrentCell.Value
+            Using ms As New MemoryStream(byteArray)
+                Dim img As Image = Image.FromStream(ms)
+                Dim imageViewForm As New ImageView()
+                imageViewForm.PictureBoxPrev.Image = img
+                imageViewForm.Show()
+            End Using
+
+            Debug.WriteLine("bruh")
+        Else
+            'Show message or do something else
+            Debug.WriteLine(membersGridView.CurrentCell.GetType())
+
+        End If
+    End Sub
+
 #Region " Move Form "
 
     ' [ Move Form ]
@@ -262,3 +270,4 @@ Public Class Main
     ' End Sub
     'amriennt
 End Class
+

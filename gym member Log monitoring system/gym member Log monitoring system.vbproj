@@ -186,6 +186,9 @@
     <EmbeddedResource Include="AddMember.resx">
       <DependentUpon>AddMember.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ImageView.resx">
+      <DependentUpon>ImageView.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>

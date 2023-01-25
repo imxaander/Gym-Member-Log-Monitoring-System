@@ -22,9 +22,36 @@ Partial Class ImageView
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.PictureBoxPrev = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBoxPrev, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'PictureBoxPrev
+        '
+        Me.PictureBoxPrev.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBoxPrev.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBoxPrev.Name = "PictureBoxPrev"
+        Me.PictureBoxPrev.Size = New System.Drawing.Size(800, 450)
+        Me.PictureBoxPrev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBoxPrev.TabIndex = 0
+        Me.PictureBoxPrev.TabStop = False
+        '
+        'ImageView
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.PictureBoxPrev)
+        Me.Name = "ImageView"
         Me.Text = "ImageView"
+        CType(Me.PictureBoxPrev, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
     End Sub
+
+    Friend WithEvents PictureBoxPrev As PictureBox
 End Class

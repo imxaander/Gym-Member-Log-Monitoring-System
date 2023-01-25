@@ -189,7 +189,7 @@ Class DataAccess
     Public Function GetPackagesDuration() As String()
         Dim tb As New DataTable
         Dim SQL As String = "SELECT * from Package;"
-        Using conn
+        Using conn As New SqlConnection(connectionString)
             Using cmd As New SqlCommand(SQL, conn)
                 conn.Open()
                 tb.Load(cmd.ExecuteReader)
