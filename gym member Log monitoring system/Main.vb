@@ -34,19 +34,12 @@ Public Class Main
         LoadMemberOverView()
         LoadEmployeeOverView()
 
-        Using conn As New SqlConnection(connectionString)
-            conn.Open()
-            Dim d As Date = Date.Now()
-            Dim df As String = d.ToString("yyyy_MM")
-            Dim sql As String = "INSERT INTO Test 
-                                VALUES ('" & df & "' + '/' +
-                                        CONVERT(VARCHAR, (SELECT COUNT(*) FROM Test WHERE date_column = CONVERT(VARCHAR, GETDATE(), 103))),
-                                        CONVERT(VARCHAR, GETDATE(), 103)
-                                 )"
-            Dim cmd As New SqlCommand(sql, conn)
+        'ui
+        'membersGridView.Dock = DockStyle.Fill
+        'employeesGridView.Dock = DockStyle.Fill
+        'membersGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        'membersGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
-            cmd.ExecuteReader()
-        End Using
     End Sub
     Public Sub LoadMemberOverView()
 
