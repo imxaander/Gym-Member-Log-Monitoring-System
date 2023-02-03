@@ -149,10 +149,10 @@ Partial Class AddEmployee
         '
         'GenderBox
         '
-        Me.GenderBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
-        Me.GenderBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.GenderBox.BackColor = System.Drawing.Color.White
         Me.GenderBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.GenderBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GenderBox.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.GenderBox.ForeColor = System.Drawing.Color.Black
         Me.GenderBox.FormattingEnabled = True
         Me.GenderBox.Items.AddRange(New Object() {"Male", "Female"})
         Me.GenderBox.Location = New System.Drawing.Point(146, 178)

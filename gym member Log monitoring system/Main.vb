@@ -86,8 +86,6 @@ Public Class Main
         membersGridView.Columns("date_Start").HeaderCell.Value = "Started Date"
         membersGridView.Columns("date_End").HeaderCell.Value = "Ending Date"
         membersGridView.Columns("image").HeaderCell.Value = "Image"
-
-        'image resizing 
     End Sub
     Private Sub membersGridView_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles membersGridView.CellFormatting
         If TypeOf e.Value Is Byte() Then
@@ -224,7 +222,6 @@ Public Class Main
                 imageViewForm.Show()
             End Using
 
-            Debug.WriteLine("bruh")
         Else
             'Show message or do something else
             Debug.WriteLine(membersGridView.CurrentCell.GetType())

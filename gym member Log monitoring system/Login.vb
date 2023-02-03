@@ -24,7 +24,6 @@ Public Class Login
                     MessageBox.Show("Cant find an account with your credentials.", "Authentication Error (2)", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     conn.Close()
                 End If
-
         End If
     End Sub
 

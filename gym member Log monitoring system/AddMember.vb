@@ -50,7 +50,7 @@ Public Class AddMember
                 Dim df As String = d.ToString("yyyy_MM")
                 Dim sql = " INSERT INTO [Member]([member_id],[last_name],[first_name],[middle_name],[dob],[gender],[contact],[address],[date_Start],[date_End], [image]) 
                             VALUES('" & df & "' + '/' +
-                                CONVERT(VARCHAR, (SELECT COUNT(*) FROM Member WHERE date_Start = CAST(GETDATE() AS DATE))), '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & address & "','" & dateStart & "','" & dateEnd & "', @img)"
+                                CONVERT(VARCHAR, (SELECT COUNT(*) FROM Member WHERE DATEPART(MONTH, date_Start) = DATEPART(MONTH, GETDATE()))), '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & address & "','" & dateStart & "','" & dateEnd & "', @img)"
                 Debug.WriteLine(sql)
                 conn.ConnectionString = connectionString
                 Dim sqlcom As New SqlCommand(sql, conn)
