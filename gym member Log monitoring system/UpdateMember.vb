@@ -151,6 +151,7 @@ Public Class UpdateMember
     End Sub
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+
         If Not MemberIdShowLabel.Text Is Nothing Then
             Try
                 Dim sqlcom As New SqlCommand("DELETE FROM [Member] WHERE member_id = '" & MemberIdShowLabel.Text & "'", conn)
@@ -158,7 +159,6 @@ Public Class UpdateMember
                 If sqlcom.ExecuteNonQuery > 0 Then
                     MessageBox.Show("Employee Deleted.")
                     conn.Close()
-                    Main.LoadMemberOverView()
                 End If
             Catch ex As Exception
                 MessageBox.Show("SQL Error: " + ex.Message)
@@ -167,11 +167,26 @@ Public Class UpdateMember
         Else
             MessageBox.Show("No one to be deleted.")
         End If
+
+        If Not MemberIdShowLabel.Text Is Nothing Then
+            Using connection As New SqlConnection(connectionString)
+                Dim command As New SqlCommand("update_member_id", connection)
+                command.CommandType = CommandType.StoredProcedure
+
+                connection.Open()
+                command.ExecuteNonQuery()
+                connection.Close()
+            End Using
+        End If
+
     End Sub
 
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Close()
     End Sub
+
+
+
 #Region " Move Form "
 
     ' [ Move Form ]
