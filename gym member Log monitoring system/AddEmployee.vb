@@ -27,7 +27,11 @@ Public Class AddEmployee
             Dim address = AddressTextBox.Text
 
             Try
-                Dim sql = "INSERT INTO [Employee]([employee_id],[last_name],[first_name],[middle_name],[dob],[gender],[contact],[address]) VALUES('" & employeeId & "', '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & address & "')"
+                Dim d As Date = Date.Now()
+                Dim df As String = d.ToString("yyyy_MM")
+                Dim sql = "INSERT INTO [Employee]([employee_id],[last_name],[first_name],[middle_name],[dob],[gender],[contact],[address]) 
+                            VALUES('" & df & "' + '/' +
+                                CONVERT(VARCHAR, (SELECT COUNT(*) FROM Employee)), '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & address & "')"
 
                 Dim sqlcom As New SqlCommand(sql, conn)
                 conn.Open()

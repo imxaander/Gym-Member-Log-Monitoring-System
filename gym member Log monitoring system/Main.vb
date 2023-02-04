@@ -38,6 +38,7 @@ Public Class Main
         'membersGridView.Dock = DockStyle.Fill
         'employeesGridView.Dock = DockStyle.Fill
         membersGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        employeesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         'membersGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
     End Sub
@@ -111,6 +112,15 @@ Public Class Main
         'load values to the grid view
         employeesGridView.DataSource = dtEmployees
 
+        'change table columns to nicer name
+        employeesGridView.Columns("employee_id").HeaderCell.Value = "Employee ID"
+        employeesGridView.Columns("last_name").HeaderCell.Value = "Last Name"
+        employeesGridView.Columns("first_name").HeaderCell.Value = "First Name"
+        employeesGridView.Columns("middle_name").HeaderCell.Value = "Middle Name"
+        employeesGridView.Columns("gender").HeaderCell.Value = "Gender"
+        employeesGridView.Columns("dob").HeaderCell.Value = "Birthdate"
+        employeesGridView.Columns("contact").HeaderCell.Value = "Contact"
+        employeesGridView.Columns("address").HeaderCell.Value = "Address"
 
     End Sub
 

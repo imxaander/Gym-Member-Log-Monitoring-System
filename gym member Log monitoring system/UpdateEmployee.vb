@@ -138,7 +138,20 @@ Public Class UpdateEmployee
         Else
             MessageBox.Show("No one to be deleted.")
         End If
+
+        If Not MemberIdShowLabel.Text Is Nothing Then
+            Using connection As New SqlConnection(connectionString)
+                Dim command As New SqlCommand("update_employee_id", connection)
+                command.CommandType = CommandType.StoredProcedure
+
+                connection.Open()
+                command.ExecuteNonQuery()
+                connection.Close()
+            End Using
+        End If
     End Sub
+
+
 
 #Region " Move Form "
 
