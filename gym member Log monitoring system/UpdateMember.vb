@@ -4,6 +4,18 @@ Imports System.Text.RegularExpressions
 
 Public Class UpdateMember
 
+    'Define the CS_DROPSHADOW constant
+    Private Const CS_DROPSHADOW As Integer = 131072
+
+    ' Override the CreateParams property
+    Protected Overrides ReadOnly Property CreateParams() As System.Windows.Forms.CreateParams
+        Get
+            Dim cp As CreateParams = MyBase.CreateParams
+            cp.ClassStyle = cp.ClassStyle Or CS_DROPSHADOW
+            Return cp
+        End Get
+    End Property
+
     Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
         If EditIdTextBox.Text = "" Then
             MessageBox.Show("Please Enter a Member ID!", "Missing Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -16,7 +28,13 @@ Public Class UpdateMember
                 MiddleNameEditTextBox.Text = member_info.middle_name
                 DateOfBirthPicker.Value = member_info.dob
                 GenderEditTextBox.Text = member_info.gender
-                ContactNoTextBox.Text = member_info.contact_no
+
+                Dim inputString As String = member_info.contact_no
+                Dim separatedStrings() As String = inputString.Split("/")
+
+                ContactNoTextBox.Text = separatedStrings(0)
+                ContactNoTextBox1.Text = separatedStrings(1)
+                ContactNoTextBox2.Text = separatedStrings(2)
                 AddressEditTextBox.Text = member_info.address
                 StartDatePicker.Value = member_info.start_date
                 EndDatePicker.Value = member_info.end_date
@@ -91,7 +109,7 @@ Public Class UpdateMember
             Dim middleName = MiddleNameEditTextBox.Text
             Dim dob = DateOfBirthPicker.Text
             Dim gender = GenderEditTextBox.Text
-            Dim contact = ContactNoTextBox.Text
+            Dim contact = ContactNoTextBox.Text + "/" + ContactNoTextBox1.Text + "/" + ContactNoTextBox2.Text
             Dim address = AddressEditTextBox.Text
             Dim dateStart = StartDatePicker.Text
             Dim dateEnd = EndDatePicker.Text
@@ -196,8 +214,7 @@ Public Class UpdateMember
     Public MoveForm As Boolean
     Public MoveForm_MousePosition As Point
 
-    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles UpdateMemberTopPanel.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = True
@@ -207,8 +224,7 @@ Public Class UpdateMember
 
     End Sub
 
-    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles UpdateMemberTopPanel.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
 
         If MoveForm Then
             Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
@@ -216,8 +232,7 @@ Public Class UpdateMember
 
     End Sub
 
-    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles UpdateMemberTopPanel.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = False

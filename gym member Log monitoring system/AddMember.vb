@@ -4,8 +4,22 @@ Imports System.Text.RegularExpressions
 Imports System.IO
 Imports System.Diagnostics
 Imports Org.BouncyCastle.Utilities
+Imports System.Threading
+Imports System.Timers
 
 Public Class AddMember
+    'Define the CS_DROPSHADOW constant
+    Private Const CS_DROPSHADOW As Integer = 131072
+
+    ' Override the CreateParams property
+    Protected Overrides ReadOnly Property CreateParams() As System.Windows.Forms.CreateParams
+        Get
+            Dim cp As CreateParams = MyBase.CreateParams
+            cp.ClassStyle = cp.ClassStyle Or CS_DROPSHADOW
+            Return cp
+        End Get
+    End Property
+
     Public startDate
     Public endDate
     Public PackageDescription
@@ -23,6 +37,7 @@ Public Class AddMember
         Debug.WriteLine(conn.ConnectionString)
 
     End Sub
+
     Private Sub AddMemberButton_Click(sender As Object, e As EventArgs) Handles AddMemberButton.Click
         If CheckAddFields() Then
 
@@ -35,7 +50,8 @@ Public Class AddMember
             Dim middleName = MiddleNameTextBox.Text
             Dim dob = DateOfBirthPicker.Text
             Dim gender = GenderBox.Text
-            Dim contact = NumPrefixBox.Text + ContactTextBox.Text
+            Dim contact = ContactTextBox1.Text + "/" + ContactTextBox2.Text + "/" + ContactTextBox3.Text
+            Dim email = EmailTextBox.Text
             Dim address = LocationComboBox.Text + ", " + AddressTextBox.Text
             Dim dateStart = startDate
             Dim dateEnd = endDate
@@ -47,10 +63,10 @@ Public Class AddMember
             Dim image = ms.ToArray()
             Try
                 Dim d As Date = Date.Now()
-                Dim df As String = d.ToString("yyyy_MM")
-                Dim sql = " INSERT INTO [Member]([member_id],[last_name],[first_name],[middle_name],[dob],[gender],[contact],[address],[date_Start],[date_End], [image]) 
+                Dim df As String = d.ToString("yyyy/MM")
+                Dim sql = " INSERT INTO [Member]([member_id],[last_name],[first_name],[middle_name],[dob],[gender],[contact],[email],[address],[date_Start],[date_End], [image]) 
                             VALUES('" & df & "' + '/' +
-                                CONVERT(VARCHAR, (SELECT COUNT(*) FROM Member WHERE DATEPART(MONTH, date_Start) = DATEPART(MONTH, GETDATE()))), '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & address & "','" & dateStart & "','" & dateEnd & "', @img)"
+                                CONVERT(VARCHAR, (SELECT COUNT(*) FROM Member WHERE DATEPART(MONTH, date_Start) = DATEPART(MONTH, GETDATE()))), '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & email & "','" & address & "','" & dateStart & "','" & dateEnd & "', @img)"
                 Debug.WriteLine(sql)
                 conn.ConnectionString = connectionString
                 Dim sqlcom As New SqlCommand(sql, conn)
@@ -72,8 +88,7 @@ Public Class AddMember
     Private Function CheckAddFields() As Boolean
         Dim valid As Boolean
 
-        Dim contactRegex As Regex = New Regex("^(09|\+639)\d{9}$")
-        Dim contactRegexMatch As Match = contactRegex.Match(NumPrefixBox.Text + ContactTextBox.Text)
+        Dim emailRegexMatch = Regex.IsMatch(EmailTextBox.Text, "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")
 
         If LastNameTextBox.Text = "" Then
             MessageBox.Show("Missing Field : " + "Last Name")
@@ -90,9 +105,8 @@ Public Class AddMember
         ElseIf AddressTextBox.Text = "" Then
             MessageBox.Show("Missing Field : " + "Address")
             valid = False
-        ElseIf Not contactRegexMatch.Success Then
-            MessageBox.Show("Wrong Format : " + "Contact No")
-
+        ElseIf Not emailRegexMatch Then
+            MessageBox.Show("Wrong Format : " + "Email")
             valid = False
         Else
             valid = True
@@ -115,7 +129,7 @@ Public Class AddMember
         MiddleNameTextBox.Text = ""
         DateOfBirthPicker.Text = ""
         GenderBox.Text = ""
-        ContactTextBox.Text = ""
+        ContactTextBox1.Text = ""
         AddressTextBox.Text = ""
     End Sub
 
@@ -142,8 +156,7 @@ Public Class AddMember
     Public MoveForm As Boolean
     Public MoveForm_MousePosition As Point
 
-    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles AddMemberTopPanel.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = True
@@ -153,8 +166,7 @@ Public Class AddMember
 
     End Sub
 
-    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles AddMemberTopPanel.MouseMove  ' Add more handles here (Example: PictureBox1.MouseMove)
 
         If MoveForm Then
             Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
@@ -162,8 +174,7 @@ Public Class AddMember
 
     End Sub
 
-    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles AddMemberTopPanel.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = False
@@ -181,6 +192,7 @@ Public Class AddMember
         endDate = Date.Now.AddMonths(durationMonths).ToString("yyyy-MM-dd")
 
     End Sub
+
 
 #End Region
 End Class

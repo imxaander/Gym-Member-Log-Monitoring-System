@@ -3,7 +3,17 @@ Imports System.IO
 Imports System.Text.RegularExpressions
 
 Public Class UpdateEmployee
-    '
+    'Define the CS_DROPSHADOW constant
+    Private Const CS_DROPSHADOW As Integer = 131072
+
+    ' Override the CreateParams property
+    Protected Overrides ReadOnly Property CreateParams() As System.Windows.Forms.CreateParams
+        Get
+            Dim cp As CreateParams = MyBase.CreateParams
+            cp.ClassStyle = cp.ClassStyle Or CS_DROPSHADOW
+            Return cp
+        End Get
+    End Property
     Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
         If EditIdTextBox.Text = "" Then
             MessageBox.Show("Please Enter a Member ID!", "Missing Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -162,8 +172,7 @@ Public Class UpdateEmployee
     Public MoveForm As Boolean
     Public MoveForm_MousePosition As Point
 
-    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles UpdateMemberTopPanel.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = True
@@ -173,8 +182,7 @@ Public Class UpdateEmployee
 
     End Sub
 
-    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles UpdateMemberTopPanel.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
 
         If MoveForm Then
             Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
@@ -182,8 +190,7 @@ Public Class UpdateEmployee
 
     End Sub
 
-    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles UpdateMemberTopPanel.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = False

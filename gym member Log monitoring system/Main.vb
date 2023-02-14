@@ -5,18 +5,20 @@ Imports System.Data
 Imports GemBox.Spreadsheet
 Imports System.Windows
 Imports System.Net.Http
+Imports System.Threading
 
 Public Class Main
     Public Property userInfoReader As SqlDataReader
     Public Property userName As String
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         If Not userInfoReader Is Nothing Then
             LoggedInLabel.Text = userInfoReader("username")
         End If
 
         'Check permissions then disable other buttons if not permitted
         If userInfoReader("updateMember") <> True Then
-            UpdateMemberToolStripMenuItem.Enabled = False
+            UpdateMemberButton.Enabled = False
         End If
 
         If userInfoReader("deleteMember") <> True Then
@@ -24,7 +26,7 @@ Public Class Main
         End If
 
         If userInfoReader("addMember") <> True Then
-            AddMemberToolStripMenuItem.Enabled = False
+            AddMemberButton.Enabled = False
         End If
 
         userInfoReader.Close()
@@ -37,9 +39,13 @@ Public Class Main
         'ui
         'membersGridView.Dock = DockStyle.Fill
         'employeesGridView.Dock = DockStyle.Fill
-        membersGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+
         employeesGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         'membersGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+
+        Timer.Interval = 1000
+        Timer.Start()
+
 
     End Sub
     Public Sub LoadMemberOverView()
@@ -47,7 +53,7 @@ Public Class Main
         'Initialize dataTable and get table values
         Dim dtMembers As New DataTable
 
-        Dim sql As String = "SELECT * FROM [Member]"
+        Dim sql As String = "SELECT * FROM [Member] ORDER BY member_id ASC"
         Dim sqlCom As New SqlCommand(sql, conn)
         sqlCom.Connection = conn
         conn.Open()
@@ -63,15 +69,15 @@ Public Class Main
         membersGridView.DataSource = dtMembers
 
         'change color of row depending on how many days left
-        Dim redWarningDays = 7
-        Dim orangeWarningDays = 14
+        Dim dangerDays = 7
+        Dim warningDays = 14
         Dim dateToday = Date.Today
 
         For i = 0 To membersGridView.Rows.Count - 1
-            If redWarningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
+            If dangerDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
                 membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Red
-            ElseIf orangeWarningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
-                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Orange
+            ElseIf warningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
+                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Yellow
             End If
         Next
 
@@ -83,16 +89,30 @@ Public Class Main
         membersGridView.Columns("dob").HeaderCell.Value = "Date of Birth"
         membersGridView.Columns("gender").HeaderCell.Value = "Gender"
         membersGridView.Columns("contact").HeaderCell.Value = "Contact No"
+        membersGridView.Columns("email").HeaderCell.Value = "Email"
         membersGridView.Columns("address").HeaderCell.Value = "Address"
         membersGridView.Columns("date_Start").HeaderCell.Value = "Started Date"
         membersGridView.Columns("date_End").HeaderCell.Value = "Ending Date"
         membersGridView.Columns("image").HeaderCell.Value = "Image"
+
+        membersGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
     End Sub
+
     Private Sub membersGridView_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles membersGridView.CellFormatting
         If TypeOf e.Value Is Byte() Then
             membersGridView.Columns(0).Width = 50
         End If
+
+        Dim columnName As String = "contact"
+        If membersGridView.Columns(e.ColumnIndex).Name = columnName Then
+            e.Value = GetFirstValue(e.Value.ToString())
+            membersGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).ToolTipText = e.Value.ToString()
+        End If
     End Sub
+
+    Private Function GetFirstValue(input As String) As String
+        Return input.Split(","c)(0)
+    End Function
     Public Sub LoadEmployeeOverView()
         'get values of from the table (employee)
         Dim dtEmployees As New DataTable
@@ -177,7 +197,7 @@ Public Class Main
 
 
 
-    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles MemberSearchButton.Click
+    Private Sub SearchButton_Click(sender As Object, e As EventArgs)
         FilterMemberDataGridView()
     End Sub
 
@@ -188,16 +208,16 @@ Public Class Main
     Private Sub RefreshEmployeeButton_Click(sender As Object, e As EventArgs) Handles RefreshEmployeeButton.Click
         LoadEmployeeOverView()
     End Sub
-    Private Sub AddEmployeeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddEmployeeToolStripMenuItem.Click
+    Private Sub AddEmployeeButton_Click(sender As Object, e As EventArgs) Handles AddEmployeeButton.Click
         AddEmployee.Show()
     End Sub
-    Private Sub UpdateEmployeeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateEmployeeToolStripMenuItem.Click
+    Private Sub UpdateEmployeeButton_Click(sender As Object, e As EventArgs) Handles UpdateEmployeeButton.Click
         UpdateEmployee.Show()
     End Sub
-    Private Sub AddMemberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddMemberToolStripMenuItem.Click
+    Private Sub AddMemberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddMemberButton.Click
         AddMember.Show()
     End Sub
-    Private Sub UpdateMemberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateMemberToolStripMenuItem.Click
+    Private Sub UpdateMemberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateMemberButton.Click
         UpdateMember.Show()
     End Sub
     Private Sub EmployeeSearchButton_Click(sender As Object, e As EventArgs) Handles EmployeeSearchButton.Click
@@ -239,19 +259,53 @@ Public Class Main
         End If
     End Sub
 
-#Region " Move Form "
-
-    ' [ Move Form ]
-    '
-    ' // By Elektro 
-
-    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
-
+    Private Sub MembersTabButton_Click(sender As Object, e As EventArgs) Handles MembersTabButton.Click
+        TabControl.SelectedTab = ViewMembersTab
+        MembersTabButton.BackColor = Color.FromArgb(52, 55, 78)
+        EmployeesTabButton.BackColor = Color.FromArgb(40, 42, 58)
     End Sub
 
-#End Region
+    Private Sub EmployeesTabButton_Click(sender As Object, e As EventArgs) Handles EmployeesTabButton.Click
+        TabControl.SelectedTab = ViewEmployeesTab
+        MembersTabButton.BackColor = Color.FromArgb(40, 42, 58)
+        EmployeesTabButton.BackColor = Color.FromArgb(52, 55, 78)
+    End Sub
 
+    Private Sub MemberSearchTextBox_Enter(sender As Object, e As EventArgs) Handles MemberSearchTextBox.Enter
+        If MemberSearchTextBox.Text = "Try typing here..." Then
+            MemberSearchTextBox.Text = ""
+            MemberSearchTextBox.ForeColor = Color.Black
+        End If
+    End Sub
 
+    Private Sub MemberSearchTextBox_Leave(sender As Object, e As EventArgs) Handles MemberSearchTextBox.Leave
+        If MemberSearchTextBox.Text = "" Then
+            MemberSearchTextBox.Text = "Try typing here..."
+            MemberSearchTextBox.ForeColor = Color.Gray
+        End If
+    End Sub
+
+    Private Sub EmployeeSearchTextBox_Enter(sender As Object, e As EventArgs) Handles EmployeeSearchTextBox.Enter
+        If EmployeeSearchTextBox.Text = "Try typing here..." Then
+            EmployeeSearchTextBox.Text = ""
+            EmployeeSearchTextBox.ForeColor = Color.Black
+        End If
+    End Sub
+
+    Private Sub EmployeeSearchTextBox_Leave(sender As Object, e As EventArgs) Handles EmployeeSearchTextBox.Leave
+        If EmployeeSearchTextBox.Text = "" Then
+            EmployeeSearchTextBox.Text = "Try typing here..."
+            EmployeeSearchTextBox.ForeColor = Color.Gray
+        End If
+    End Sub
+
+    Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
+        TimeLabel.Text = DateTime.Now.ToString("HH:mm:ss")
+    End Sub
+
+    Private Sub ChangeFonts()
+        Label4.Font = FontModule.GetFont()
+    End Sub
 
 
     'Code just incase automatic filtering
@@ -265,5 +319,7 @@ Public Class Main
     'Me.Validate()
     ' End Sub
     'amriennt
+
 End Class
+
 

@@ -3,6 +3,17 @@ Imports System.Configuration
 Imports System.Text.RegularExpressions
 Imports System.IO
 Public Class AddEmployee
+    'Define the CS_DROPSHADOW constant
+    Private Const CS_DROPSHADOW As Integer = 131072
+
+    ' Override the CreateParams property
+    Protected Overrides ReadOnly Property CreateParams() As System.Windows.Forms.CreateParams
+        Get
+            Dim cp As CreateParams = MyBase.CreateParams
+            cp.ClassStyle = cp.ClassStyle Or CS_DROPSHADOW
+            Return cp
+        End Get
+    End Property
     Private Sub AddEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Set restrictions to date pickers
         DateOfBirthPicker.MaxDate = DateTime.Now
@@ -28,7 +39,7 @@ Public Class AddEmployee
 
             Try
                 Dim d As Date = Date.Now()
-                Dim df As String = d.ToString("yyyy_MM")
+                Dim df As String = d.ToString("yyyy/MM")
                 Dim sql = "INSERT INTO [Employee]([employee_id],[last_name],[first_name],[middle_name],[dob],[gender],[contact],[address]) 
                             VALUES('" & df & "' + '/' +
                                 CONVERT(VARCHAR, (SELECT COUNT(*) FROM Employee)), '" & lastName & "', '" & firstName & "', '" & middleName & "','" & dob & "','" & gender & "','" & contact & "','" & address & "')"
@@ -111,8 +122,7 @@ Public Class AddEmployee
     Public MoveForm As Boolean
     Public MoveForm_MousePosition As Point
 
-    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
+    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles AddEmployeeTopPanel.MouseDown ' Add more handles here (Example: PictureBox1.MouseDown)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = True
@@ -122,8 +132,7 @@ Public Class AddEmployee
 
     End Sub
 
-    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
+    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles AddEmployeeTopPanel.MouseMove ' Add more handles here (Example: PictureBox1.MouseMove)
 
         If MoveForm Then
             Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
@@ -131,8 +140,7 @@ Public Class AddEmployee
 
     End Sub
 
-    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles _
-    MenuStrip1.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
+    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles AddEmployeeTopPanel.MouseUp ' Add more handles here (Example: PictureBox1.MouseUp)
 
         If e.Button = MouseButtons.Left Then
             MoveForm = False
@@ -146,3 +154,4 @@ Public Class AddEmployee
 #End Region
 
 End Class
+
