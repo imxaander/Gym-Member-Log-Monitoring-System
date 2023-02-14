@@ -44,11 +44,7 @@ Partial Class Main
         Me.UpdateEmployeeButton = New System.Windows.Forms.Button()
         Me.EmployeeSearchButton = New System.Windows.Forms.Button()
         Me.AddEmployeeButton = New System.Windows.Forms.Button()
-        Me.EmployeeFilterColBox = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.EmployeeSearchTextBox = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -194,16 +190,16 @@ Partial Class Main
         'MemberFilterColBox
         '
         Me.MemberFilterColBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.MemberFilterColBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.MemberFilterColBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.MemberFilterColBox.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.MemberFilterColBox.FormattingEnabled = True
         Me.MemberFilterColBox.ItemHeight = 19
-        Me.MemberFilterColBox.Items.AddRange(New Object() {"address", "first_name", "middle_name"})
+        Me.MemberFilterColBox.Items.AddRange(New Object() {"Member ID", "First Name", "Last Name", "Middle Name", "Email", "All"})
         Me.MemberFilterColBox.Location = New System.Drawing.Point(355, 104)
         Me.MemberFilterColBox.Name = "MemberFilterColBox"
         Me.MemberFilterColBox.Size = New System.Drawing.Size(87, 27)
         Me.MemberFilterColBox.TabIndex = 8
-        Me.MemberFilterColBox.Text = "All"
         '
         'Label2
         '
@@ -260,7 +256,7 @@ Partial Class Main
         Me.MemberSearchTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.MemberSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MemberSearchTextBox.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MemberSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(201, Byte), Integer))
+        Me.MemberSearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.MemberSearchTextBox.Location = New System.Drawing.Point(23, 104)
         Me.MemberSearchTextBox.MaxLength = 20
         Me.MemberSearchTextBox.Multiline = True
@@ -287,11 +283,7 @@ Partial Class Main
         Me.ViewEmployeesTab.Controls.Add(Me.UpdateEmployeeButton)
         Me.ViewEmployeesTab.Controls.Add(Me.EmployeeSearchButton)
         Me.ViewEmployeesTab.Controls.Add(Me.AddEmployeeButton)
-        Me.ViewEmployeesTab.Controls.Add(Me.EmployeeFilterColBox)
-        Me.ViewEmployeesTab.Controls.Add(Me.Label3)
         Me.ViewEmployeesTab.Controls.Add(Me.Label5)
-        Me.ViewEmployeesTab.Controls.Add(Me.ComboBox3)
-        Me.ViewEmployeesTab.Controls.Add(Me.Label6)
         Me.ViewEmployeesTab.Controls.Add(Me.EmployeeSearchTextBox)
         Me.ViewEmployeesTab.Controls.Add(Me.Label7)
         Me.ViewEmployeesTab.Location = New System.Drawing.Point(4, 5)
@@ -319,7 +311,7 @@ Partial Class Main
         '
         Me.RefreshEmployeeButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RefreshEmployeeButton.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources._2805355
-        Me.RefreshEmployeeButton.Location = New System.Drawing.Point(722, 100)
+        Me.RefreshEmployeeButton.Location = New System.Drawing.Point(475, 100)
         Me.RefreshEmployeeButton.Name = "RefreshEmployeeButton"
         Me.RefreshEmployeeButton.Size = New System.Drawing.Size(39, 31)
         Me.RefreshEmployeeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -348,7 +340,7 @@ Partial Class Main
         Me.EmployeeSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.EmployeeSearchButton.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.EmployeeSearchButton.ForeColor = System.Drawing.Color.White
-        Me.EmployeeSearchButton.Location = New System.Drawing.Point(602, 100)
+        Me.EmployeeSearchButton.Location = New System.Drawing.Point(355, 100)
         Me.EmployeeSearchButton.Name = "EmployeeSearchButton"
         Me.EmployeeSearchButton.Size = New System.Drawing.Size(114, 31)
         Me.EmployeeSearchButton.TabIndex = 9
@@ -370,31 +362,6 @@ Partial Class Main
         Me.AddEmployeeButton.Text = "CREATE NEW"
         Me.AddEmployeeButton.UseVisualStyleBackColor = False
         '
-        'EmployeeFilterColBox
-        '
-        Me.EmployeeFilterColBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
-        Me.EmployeeFilterColBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EmployeeFilterColBox.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.EmployeeFilterColBox.FormattingEnabled = True
-        Me.EmployeeFilterColBox.ItemHeight = 19
-        Me.EmployeeFilterColBox.Items.AddRange(New Object() {"address", "first_name", "middle_name"})
-        Me.EmployeeFilterColBox.Location = New System.Drawing.Point(486, 104)
-        Me.EmployeeFilterColBox.Name = "EmployeeFilterColBox"
-        Me.EmployeeFilterColBox.Size = New System.Drawing.Size(87, 27)
-        Me.EmployeeFilterColBox.TabIndex = 8
-        Me.EmployeeFilterColBox.Text = "All"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Gadugi", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(482, 82)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(72, 19)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Category"
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -406,38 +373,13 @@ Partial Class Main
         Me.Label5.TabIndex = 3
         Me.Label5.Text = "Employees"
         '
-        'ComboBox3
-        '
-        Me.ComboBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
-        Me.ComboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox3.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.ItemHeight = 19
-        Me.ComboBox3.Items.AddRange(New Object() {"Danger", "Warning", "Safe"})
-        Me.ComboBox3.Location = New System.Drawing.Point(358, 104)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(87, 27)
-        Me.ComboBox3.TabIndex = 6
-        Me.ComboBox3.Text = "All"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Font = New System.Drawing.Font("Gadugi", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(354, 82)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(53, 19)
-        Me.Label6.TabIndex = 5
-        Me.Label6.Text = "Status"
-        '
         'EmployeeSearchTextBox
         '
         Me.EmployeeSearchTextBox.AccessibleRole = System.Windows.Forms.AccessibleRole.None
         Me.EmployeeSearchTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.EmployeeSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.EmployeeSearchTextBox.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.EmployeeSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(201, Byte), Integer))
+        Me.EmployeeSearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.EmployeeSearchTextBox.Location = New System.Drawing.Point(23, 104)
         Me.EmployeeSearchTextBox.MaxLength = 20
         Me.EmployeeSearchTextBox.Multiline = True
@@ -684,11 +626,7 @@ Partial Class Main
     Friend WithEvents UpdateEmployeeButton As Button
     Friend WithEvents EmployeeSearchButton As Button
     Friend WithEvents AddEmployeeButton As Button
-    Friend WithEvents EmployeeFilterColBox As ComboBox
-    Public WithEvents Label3 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents Label6 As Label
     Friend WithEvents EmployeeSearchTextBox As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents PictureBox4 As PictureBox

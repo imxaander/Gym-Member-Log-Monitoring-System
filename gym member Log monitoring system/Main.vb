@@ -149,21 +149,36 @@ Public Class Main
 
     End Sub
 
-    Public Sub FilterMemberDataGridView()
-        Dim colValue As String = MemberSearchTextBox.Text
-        Dim colName As String = MemberFilterColBox.Text
-
+    Public Sub FilterMemberDataGridView() Handles SearchButton.Click
         Dim dtMembers As New DataTable
-        Dim sql As String
-        If MemberSearchTextBox.Text = "" Or MemberFilterColBox.Text = "" Then
-            sql = "SELECT * FROM [Member]"
-        Else
-            sql = "SELECT * FROM [Member] WHERE " & colName & " LIKE @colValue"
-        End If
-        Dim sqlCom As New SqlCommand(sql, conn)
-        sqlCom.Parameters.Add("@colValue", SqlDbType.VarChar).Value = colValue
-        conn.Open()
+        Dim sql As String = ""
 
+        If MemberFilterColBox.Text = "Member ID" Then
+            sql = "SELECT * FROM [Member] WHERE  LOWER(member_id) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+        ElseIf MemberFilterColBox.Text = "Last Name" Then
+            sql = "SELECT * FROM [Member] WHERE  LOWER(last_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+        ElseIf MemberFilterColBox.Text = "First Name" Then
+            sql = "SELECT * FROM [Member] WHERE  LOWER(first_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+        ElseIf MemberFilterColBox.Text = "Middle Name" Then
+            sql = "SELECT * FROM [Member] WHERE  LOWER(middle_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+        ElseIf MemberFilterColBox.Text = "Email" Then
+            sql = "SELECT * FROM [Member] WHERE  LOWER(email) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+        ElseIf MemberFilterColBox.Text = "All" Then
+            sql = "SELECT * FROM [Member] WHERE
+                    LOWER(member_id) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') OR
+                    LOWER(email) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') OR
+                    LOWER(last_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') OR
+                    LOWER(first_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') OR
+                    LOWER(middle_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') OR
+                    LOWER(contact) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') OR
+                    LOWER(address) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+        Else
+            sql = "SELECT * FROM [Member]"
+        End If
+
+        Dim sqlCom As New SqlCommand(sql, conn)
+
+        conn.Open()
         Dim sqlRead As SqlDataReader = sqlCom.ExecuteReader()
 
         dtMembers.Load(sqlRead)
@@ -172,21 +187,20 @@ Public Class Main
 
         membersGridView.DataSource = dtMembers
         conn.Close()
+        ColorMemberRows()
     End Sub
     Public Sub FilterEmployeeDataGridView()
-        Dim colValue As String = EmployeeSearchTextBox.Text
-        Dim colName As String = EmployeeFilterColBox.Text
-
         Dim dtEmployees As New DataTable
 
-        Dim sql As String
-        If EmployeeSearchTextBox.Text = "" Or EmployeeFilterColBox.Text = "" Then
-            sql = "SELECT * FROM [Employee]"
-        Else
-            sql = "SELECT * FROM [Employee] WHERE " & colName & "=@colValue"
-        End If
+        Dim sql = "SELECT * FROM [Employee] WHERE
+                    LOWER(employee_id) LIKE LOWER('%" + EmployeeSearchTextBox.Text + "%') OR
+                    LOWER(last_name) LIKE LOWER('%" + EmployeeSearchTextBox.Text + "%') OR
+                    LOWER(first_name) LIKE LOWER('%" + EmployeeSearchTextBox.Text + "%') OR
+                    LOWER(middle_name) LIKE LOWER('%" + EmployeeSearchTextBox.Text + "%') OR
+                    LOWER(contact) LIKE LOWER('%" + EmployeeSearchTextBox.Text + "%') OR
+                    LOWER(address) LIKE LOWER('%" + EmployeeSearchTextBox.Text + "%')"
+
         Dim sqlCom As New SqlCommand(sql, conn)
-        sqlCom.Parameters.Add("@colValue", SqlDbType.VarChar).Value = colValue
         conn.Open()
 
         Dim sqlRead As SqlDataReader = sqlCom.ExecuteReader()
@@ -272,34 +286,6 @@ Public Class Main
         TabControl.SelectedTab = ViewEmployeesTab
         MembersTabButton.BackColor = Color.FromArgb(40, 42, 58)
         EmployeesTabButton.BackColor = Color.FromArgb(52, 55, 78)
-    End Sub
-
-    Private Sub MemberSearchTextBox_Enter(sender As Object, e As EventArgs) Handles MemberSearchTextBox.Enter
-        If MemberSearchTextBox.Text = "Try typing here..." Then
-            MemberSearchTextBox.Text = ""
-            MemberSearchTextBox.ForeColor = Color.Black
-        End If
-    End Sub
-
-    Private Sub MemberSearchTextBox_Leave(sender As Object, e As EventArgs) Handles MemberSearchTextBox.Leave
-        If MemberSearchTextBox.Text = "" Then
-            MemberSearchTextBox.Text = "Try typing here..."
-            MemberSearchTextBox.ForeColor = Color.Gray
-        End If
-    End Sub
-
-    Private Sub EmployeeSearchTextBox_Enter(sender As Object, e As EventArgs) Handles EmployeeSearchTextBox.Enter
-        If EmployeeSearchTextBox.Text = "Try typing here..." Then
-            EmployeeSearchTextBox.Text = ""
-            EmployeeSearchTextBox.ForeColor = Color.Black
-        End If
-    End Sub
-
-    Private Sub EmployeeSearchTextBox_Leave(sender As Object, e As EventArgs) Handles EmployeeSearchTextBox.Leave
-        If EmployeeSearchTextBox.Text = "" Then
-            EmployeeSearchTextBox.Text = "Try typing here..."
-            EmployeeSearchTextBox.ForeColor = Color.Gray
-        End If
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
