@@ -34,7 +34,7 @@ Partial Class Main
         Me.MemberFilterColBox = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.StatusBox = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.MemberSearchTextBox = New System.Windows.Forms.TextBox()
         Me.SearchLabel = New System.Windows.Forms.Label()
@@ -109,7 +109,7 @@ Partial Class Main
         Me.ViewMembersTab.Controls.Add(Me.MemberFilterColBox)
         Me.ViewMembersTab.Controls.Add(Me.Label2)
         Me.ViewMembersTab.Controls.Add(Me.Label4)
-        Me.ViewMembersTab.Controls.Add(Me.ComboBox1)
+        Me.ViewMembersTab.Controls.Add(Me.StatusBox)
         Me.ViewMembersTab.Controls.Add(Me.Label1)
         Me.ViewMembersTab.Controls.Add(Me.MemberSearchTextBox)
         Me.ViewMembersTab.Controls.Add(Me.SearchLabel)
@@ -140,7 +140,7 @@ Partial Class Main
         '
         Me.RefreshMemberButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RefreshMemberButton.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources._2805355
-        Me.RefreshMemberButton.Location = New System.Drawing.Point(722, 100)
+        Me.RefreshMemberButton.Location = New System.Drawing.Point(570, 100)
         Me.RefreshMemberButton.Name = "RefreshMemberButton"
         Me.RefreshMemberButton.Size = New System.Drawing.Size(39, 31)
         Me.RefreshMemberButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -169,7 +169,7 @@ Partial Class Main
         Me.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SearchButton.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.SearchButton.ForeColor = System.Drawing.Color.White
-        Me.SearchButton.Location = New System.Drawing.Point(602, 100)
+        Me.SearchButton.Location = New System.Drawing.Point(450, 100)
         Me.SearchButton.Name = "SearchButton"
         Me.SearchButton.Size = New System.Drawing.Size(114, 31)
         Me.SearchButton.TabIndex = 9
@@ -199,7 +199,7 @@ Partial Class Main
         Me.MemberFilterColBox.FormattingEnabled = True
         Me.MemberFilterColBox.ItemHeight = 19
         Me.MemberFilterColBox.Items.AddRange(New Object() {"address", "first_name", "middle_name"})
-        Me.MemberFilterColBox.Location = New System.Drawing.Point(486, 104)
+        Me.MemberFilterColBox.Location = New System.Drawing.Point(355, 104)
         Me.MemberFilterColBox.Name = "MemberFilterColBox"
         Me.MemberFilterColBox.Size = New System.Drawing.Size(87, 27)
         Me.MemberFilterColBox.TabIndex = 8
@@ -210,7 +210,7 @@ Partial Class Main
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Gadugi", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(482, 82)
+        Me.Label2.Location = New System.Drawing.Point(351, 82)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(72, 19)
         Me.Label2.TabIndex = 7
@@ -227,26 +227,28 @@ Partial Class Main
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Members"
         '
-        'ComboBox1
+        'StatusBox
         '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
-        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox1.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.ItemHeight = 19
-        Me.ComboBox1.Items.AddRange(New Object() {"Danger", "Warning", "Safe"})
-        Me.ComboBox1.Location = New System.Drawing.Point(358, 104)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(87, 27)
-        Me.ComboBox1.TabIndex = 6
-        Me.ComboBox1.Text = "All"
+        Me.StatusBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.StatusBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.StatusBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.StatusBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.StatusBox.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.StatusBox.FormattingEnabled = True
+        Me.StatusBox.ItemHeight = 19
+        Me.StatusBox.Items.AddRange(New Object() {"Danger", "Warning", "Safe", "All"})
+        Me.StatusBox.Location = New System.Drawing.Point(882, 100)
+        Me.StatusBox.Name = "StatusBox"
+        Me.StatusBox.Size = New System.Drawing.Size(87, 27)
+        Me.StatusBox.TabIndex = 6
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Gadugi", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(354, 82)
+        Me.Label1.Location = New System.Drawing.Point(878, 78)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 19)
         Me.Label1.TabIndex = 5
@@ -666,7 +668,7 @@ Partial Class Main
     Friend WithEvents SearchButton As Button
     Friend WithEvents MemberFilterColBox As ComboBox
     Public WithEvents Label2 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents StatusBox As ComboBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox

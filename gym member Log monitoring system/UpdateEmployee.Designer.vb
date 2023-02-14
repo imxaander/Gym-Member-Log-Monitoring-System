@@ -84,7 +84,7 @@ Partial Class UpdateEmployee
         '
         Me.ContactNoTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.ContactNoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ContactNoTextBox.ForeColor = System.Drawing.Color.White
+        Me.ContactNoTextBox.ForeColor = System.Drawing.Color.Black
         Me.ContactNoTextBox.Location = New System.Drawing.Point(29, 195)
         Me.ContactNoTextBox.MaxLength = 11
         Me.ContactNoTextBox.Name = "ContactNoTextBox"
@@ -106,7 +106,7 @@ Partial Class UpdateEmployee
         '
         Me.AddressEditTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.AddressEditTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.AddressEditTextBox.ForeColor = System.Drawing.Color.White
+        Me.AddressEditTextBox.ForeColor = System.Drawing.Color.Black
         Me.AddressEditTextBox.Location = New System.Drawing.Point(28, 147)
         Me.AddressEditTextBox.Name = "AddressEditTextBox"
         Me.AddressEditTextBox.Size = New System.Drawing.Size(147, 20)
@@ -168,7 +168,7 @@ Partial Class UpdateEmployee
         '
         Me.MiddleNameEditTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.MiddleNameEditTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.MiddleNameEditTextBox.ForeColor = System.Drawing.Color.White
+        Me.MiddleNameEditTextBox.ForeColor = System.Drawing.Color.Black
         Me.MiddleNameEditTextBox.Location = New System.Drawing.Point(295, 94)
         Me.MiddleNameEditTextBox.Name = "MiddleNameEditTextBox"
         Me.MiddleNameEditTextBox.Size = New System.Drawing.Size(95, 20)
@@ -189,7 +189,7 @@ Partial Class UpdateEmployee
         '
         Me.FirstNameEditTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.FirstNameEditTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.FirstNameEditTextBox.ForeColor = System.Drawing.Color.White
+        Me.FirstNameEditTextBox.ForeColor = System.Drawing.Color.Black
         Me.FirstNameEditTextBox.Location = New System.Drawing.Point(184, 94)
         Me.FirstNameEditTextBox.Name = "FirstNameEditTextBox"
         Me.FirstNameEditTextBox.Size = New System.Drawing.Size(100, 20)
@@ -210,7 +210,7 @@ Partial Class UpdateEmployee
         '
         Me.LastNameEditTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.LastNameEditTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LastNameEditTextBox.ForeColor = System.Drawing.Color.White
+        Me.LastNameEditTextBox.ForeColor = System.Drawing.Color.Black
         Me.LastNameEditTextBox.Location = New System.Drawing.Point(28, 94)
         Me.LastNameEditTextBox.Name = "LastNameEditTextBox"
         Me.LastNameEditTextBox.Size = New System.Drawing.Size(147, 20)
@@ -276,7 +276,7 @@ Partial Class UpdateEmployee
         '
         Me.EditIdTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.EditIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.EditIdTextBox.ForeColor = System.Drawing.Color.White
+        Me.EditIdTextBox.ForeColor = System.Drawing.Color.Black
         Me.EditIdTextBox.Location = New System.Drawing.Point(28, 37)
         Me.EditIdTextBox.Name = "EditIdTextBox"
         Me.EditIdTextBox.Size = New System.Drawing.Size(147, 20)
@@ -288,7 +288,7 @@ Partial Class UpdateEmployee
         Me.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ExitButton.Font = New System.Drawing.Font("Gadugi", 18.75!, System.Drawing.FontStyle.Bold)
         Me.ExitButton.ForeColor = System.Drawing.Color.White
-        Me.ExitButton.Location = New System.Drawing.Point(416, 1)
+        Me.ExitButton.Location = New System.Drawing.Point(416, -3)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(24, 24)
         Me.ExitButton.TabIndex = 67

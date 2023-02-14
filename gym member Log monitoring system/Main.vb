@@ -69,17 +69,7 @@ Public Class Main
         membersGridView.DataSource = dtMembers
 
         'change color of row depending on how many days left
-        Dim dangerDays = 7
-        Dim warningDays = 14
-        Dim dateToday = Date.Today
-
-        For i = 0 To membersGridView.Rows.Count - 1
-            If dangerDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
-                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Red
-            ElseIf warningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
-                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Yellow
-            End If
-        Next
+        ColorMemberRows()
 
         'change table columns to nicer name
         membersGridView.Columns("member_id").HeaderCell.Value = "Member ID"
@@ -96,6 +86,21 @@ Public Class Main
         membersGridView.Columns("image").HeaderCell.Value = "Image"
 
         membersGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+    End Sub
+
+    Private Sub ColorMemberRows()
+        'change color of row depending on how many days left
+        Dim dangerDays = 7
+        Dim warningDays = 14
+        Dim dateToday = Date.Today
+
+        For i = 0 To membersGridView.Rows.Count - 1
+            If dangerDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
+                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Red
+            ElseIf warningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
+                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Yellow
+            End If
+        Next
     End Sub
 
     Private Sub membersGridView_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles membersGridView.CellFormatting
@@ -195,8 +200,6 @@ Public Class Main
     End Sub
 
 
-
-
     Private Sub SearchButton_Click(sender As Object, e As EventArgs)
         FilterMemberDataGridView()
     End Sub
@@ -251,8 +254,8 @@ Public Class Main
                 imageViewForm.PictureBoxPrev.Image = img
                 imageViewForm.Show()
             End Using
-
         Else
+
             'Show message or do something else
             Debug.WriteLine(membersGridView.CurrentCell.GetType())
 
@@ -306,6 +309,40 @@ Public Class Main
     Private Sub ChangeFonts()
         Label4.Font = FontModule.GetFont()
     End Sub
+
+    Private Sub StatusBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles StatusBox.SelectedIndexChanged
+        Dim dtMembers As New DataTable
+        Dim sql As String = ""
+
+        Dim status = StatusBox.Text
+
+        If StatusBox.Text = "Danger" Then
+            sql = "SELECT * FROM [Member] WHERE date_End BETWEEN GETDATE() AND DATEADD(day, 6, GETDATE())"
+        ElseIf StatusBox.Text = "Warning" Then
+            sql = "SELECT * FROM [Member] WHERE date_End BETWEEN  DATEADD(day, 6, GETDATE()) AND DATEADD(day, 13, GETDATE())"
+        ElseIf StatusBox.Text = "Safe" Then
+            sql = "SELECT * FROM [Member] WHERE date_End > DATEADD(day, 14, GETDATE())"
+        ElseIf StatusBox.Text = "All" Then
+            sql = "SELECT * FROM [Member]"
+        End If
+
+        Dim sqlCom As New SqlCommand(sql, conn)
+
+        conn.Open()
+        Dim sqlRead As SqlDataReader = sqlCom.ExecuteReader()
+
+        dtMembers.Load(sqlRead)
+
+        sqlRead.Close()
+
+        membersGridView.DataSource = dtMembers
+        conn.Close()
+        ColorMemberRows()
+
+
+    End Sub
+
+
 
 
     'Code just incase automatic filtering
