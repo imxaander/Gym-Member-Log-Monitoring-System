@@ -46,6 +46,9 @@ Public Class Main
         Timer.Interval = 1000
         Timer.Start()
 
+        'set defaults
+        MemberFilterColBox.SelectedIndex = 5
+        StatusBox.SelectedIndex = 4
 
     End Sub
     Public Sub LoadMemberOverView()
@@ -92,14 +95,23 @@ Public Class Main
         'change color of row depending on how many days left
         Dim dangerDays = 7
         Dim warningDays = 14
+        Dim outDays = 0
         Dim dateToday = Date.Today
 
         For i = 0 To membersGridView.Rows.Count - 1
+
+
             If dangerDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
                 membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Red
             ElseIf warningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
                 membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Yellow
             End If
+
+            If outDays < (DateTime.Parse(dateToday) - DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value)).TotalDays Then
+                membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Blue
+            End If
+
+
         Next
     End Sub
 
@@ -302,12 +314,14 @@ Public Class Main
 
         Dim status = StatusBox.Text
 
-        If StatusBox.Text = "Danger" Then
+        If StatusBox.Text = "Almost Due" Then
             sql = "SELECT * FROM [Member] WHERE date_End BETWEEN GETDATE() AND DATEADD(day, 6, GETDATE())"
         ElseIf StatusBox.Text = "Warning" Then
             sql = "SELECT * FROM [Member] WHERE date_End BETWEEN  DATEADD(day, 6, GETDATE()) AND DATEADD(day, 13, GETDATE())"
         ElseIf StatusBox.Text = "Safe" Then
             sql = "SELECT * FROM [Member] WHERE date_End > DATEADD(day, 14, GETDATE())"
+        ElseIf StatusBox.Text = "Out of Service" Then
+            sql = "SELECT * FROM [Member] WHERE date_End < GETDATE()"
         ElseIf StatusBox.Text = "All" Then
             sql = "SELECT * FROM [Member]"
         End If
@@ -327,7 +341,6 @@ Public Class Main
 
 
     End Sub
-
 
 
 

@@ -254,6 +254,7 @@
     <None Include="Resources\manipaksiw_logo_nobg.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\image_placeholder.png" />
     <None Include="Resources\2805355.png" />
     <Content Include="Resources\group.png" />
     <None Include="Resources\logout.png" />

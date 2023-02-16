@@ -40,13 +40,13 @@ Partial Class Main
         Me.SearchLabel = New System.Windows.Forms.Label()
         Me.ViewEmployeesTab = New System.Windows.Forms.TabPage()
         Me.employeesGridView = New System.Windows.Forms.DataGridView()
-        Me.RefreshEmployeeButton = New System.Windows.Forms.PictureBox()
         Me.UpdateEmployeeButton = New System.Windows.Forms.Button()
         Me.EmployeeSearchButton = New System.Windows.Forms.Button()
         Me.AddEmployeeButton = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.EmployeeSearchTextBox = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.RefreshEmployeeButton = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -232,7 +232,7 @@ Partial Class Main
         Me.StatusBox.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.StatusBox.FormattingEnabled = True
         Me.StatusBox.ItemHeight = 19
-        Me.StatusBox.Items.AddRange(New Object() {"Danger", "Warning", "Safe", "All"})
+        Me.StatusBox.Items.AddRange(New Object() {"Almost Due", "Warning", "Safe", "Out of Service", "All"})
         Me.StatusBox.Location = New System.Drawing.Point(882, 100)
         Me.StatusBox.Name = "StatusBox"
         Me.StatusBox.Size = New System.Drawing.Size(87, 27)
@@ -279,13 +279,13 @@ Partial Class Main
         '
         Me.ViewEmployeesTab.BackColor = System.Drawing.Color.White
         Me.ViewEmployeesTab.Controls.Add(Me.employeesGridView)
-        Me.ViewEmployeesTab.Controls.Add(Me.RefreshEmployeeButton)
         Me.ViewEmployeesTab.Controls.Add(Me.UpdateEmployeeButton)
         Me.ViewEmployeesTab.Controls.Add(Me.EmployeeSearchButton)
         Me.ViewEmployeesTab.Controls.Add(Me.AddEmployeeButton)
         Me.ViewEmployeesTab.Controls.Add(Me.Label5)
         Me.ViewEmployeesTab.Controls.Add(Me.EmployeeSearchTextBox)
         Me.ViewEmployeesTab.Controls.Add(Me.Label7)
+        Me.ViewEmployeesTab.Controls.Add(Me.RefreshEmployeeButton)
         Me.ViewEmployeesTab.Location = New System.Drawing.Point(4, 5)
         Me.ViewEmployeesTab.Name = "ViewEmployeesTab"
         Me.ViewEmployeesTab.Padding = New System.Windows.Forms.Padding(3)
@@ -306,17 +306,6 @@ Partial Class Main
         Me.employeesGridView.ReadOnly = True
         Me.employeesGridView.Size = New System.Drawing.Size(946, 415)
         Me.employeesGridView.TabIndex = 11
-        '
-        'RefreshEmployeeButton
-        '
-        Me.RefreshEmployeeButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.RefreshEmployeeButton.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources._2805355
-        Me.RefreshEmployeeButton.Location = New System.Drawing.Point(475, 100)
-        Me.RefreshEmployeeButton.Name = "RefreshEmployeeButton"
-        Me.RefreshEmployeeButton.Size = New System.Drawing.Size(39, 31)
-        Me.RefreshEmployeeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.RefreshEmployeeButton.TabIndex = 10
-        Me.RefreshEmployeeButton.TabStop = False
         '
         'UpdateEmployeeButton
         '
@@ -397,6 +386,17 @@ Partial Class Main
         Me.Label7.Size = New System.Drawing.Size(186, 19)
         Me.Label7.TabIndex = 4
         Me.Label7.Text = "Who are you looking for?"
+        '
+        'RefreshEmployeeButton
+        '
+        Me.RefreshEmployeeButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RefreshEmployeeButton.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources._2805355
+        Me.RefreshEmployeeButton.Location = New System.Drawing.Point(475, 100)
+        Me.RefreshEmployeeButton.Name = "RefreshEmployeeButton"
+        Me.RefreshEmployeeButton.Size = New System.Drawing.Size(39, 31)
+        Me.RefreshEmployeeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.RefreshEmployeeButton.TabIndex = 10
+        Me.RefreshEmployeeButton.TabStop = False
         '
         'Panel3
         '

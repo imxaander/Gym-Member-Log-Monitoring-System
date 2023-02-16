@@ -193,6 +193,22 @@ Public Class AddMember
 
     End Sub
 
+    'text only
+    Private Sub TextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles LastNameTextBox.KeyPress, FirstNameTextBox.KeyPress, MiddleNameTextBox.KeyPress, AddressTextBox.KeyPress
+        ' Allow only letters and numbers
+        If Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    'number only
+    Private Sub NumBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ContactTextBox1.KeyPress, ContactTextBox2.KeyPress, ContactTextBox3.KeyPress
+        ' Allow only letters and numbers
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
 
 #End Region
 End Class

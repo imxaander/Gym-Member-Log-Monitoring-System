@@ -287,6 +287,7 @@ Partial Class AddMember
         '
         'MemberImagePreview
         '
+        Me.MemberImagePreview.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources.image_placeholder
         Me.MemberImagePreview.Location = New System.Drawing.Point(238, 165)
         Me.MemberImagePreview.Name = "MemberImagePreview"
         Me.MemberImagePreview.Size = New System.Drawing.Size(203, 166)
@@ -320,7 +321,7 @@ Partial Class AddMember
         '
         Me.LocationComboBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.LocationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.LocationComboBox.ForeColor = System.Drawing.Color.White
+        Me.LocationComboBox.ForeColor = System.Drawing.Color.Black
         Me.LocationComboBox.FormattingEnabled = True
         Me.LocationComboBox.Items.AddRange(New Object() {"Paranaque", "Las Piñas"})
         Me.LocationComboBox.Location = New System.Drawing.Point(238, 75)
