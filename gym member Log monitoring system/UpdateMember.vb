@@ -65,6 +65,7 @@ Public Class UpdateMember
             member_info.start_date = sqlRead("date_Start")
             member_info.end_date = sqlRead("date_End")
             member_info.image = sqlRead("image")
+            member_info.blacklisted = sqlRead("blacklisted")
             sqlRead.Close()
             conn.Close()
         Else
@@ -88,6 +89,7 @@ Public Class UpdateMember
         Public start_date As Date
         Public end_date As Date
         Public image As Byte()
+        Public blacklisted As Boolean
     End Class
 
     Private Sub ImageEditBox_Click(sender As Object, e As EventArgs) Handles ImageEditBox.Click
@@ -113,13 +115,14 @@ Public Class UpdateMember
             Dim address = AddressEditTextBox.Text
             Dim dateStart = StartDatePicker.Text
             Dim dateEnd = EndDatePicker.Text
+            Dim blacklisted = BlackListCheckBox.Checked
 
             Dim ms As New MemoryStream
             ImageEditBox.Image.Save(ms, ImageEditBox.Image.RawFormat)
 
             Dim image = ms.ToArray()
             Try
-                Dim sqlcom As New SqlCommand("UPDATE [Member] SET last_name = '" & lastName & "', first_name = '" & firstName & "', middle_name = '" & middleName & "', dob = '" & dob & "', gender = '" & gender & "', contact = '" & contact & "', address = '" & address & "', date_Start = '" & dateStart & "', date_End = '" & dateEnd & "',  image = @image WHERE member_id = '" & member_id & "'", conn)
+                Dim sqlcom As New SqlCommand("UPDATE [Member] SET last_name = '" & lastName & "', first_name = '" & firstName & "', middle_name = '" & middleName & "', dob = '" & dob & "', gender = '" & gender & "', contact = '" & contact & "', address = '" & address & "', date_Start = '" & dateStart & "', date_End = '" & dateEnd & "',  image = @image, blacklisted = '" & blacklisted & "' WHERE member_id = '" & member_id & "'", conn)
                 sqlcom.Parameters.Add("@image", SqlDbType.Image).Value = image
                 conn.Open()
                 If sqlcom.ExecuteNonQuery > 0 Then
@@ -172,10 +175,16 @@ Public Class UpdateMember
 
         If Not MemberIdShowLabel.Text Is Nothing Then
             Try
-                Dim sqlcom As New SqlCommand("DELETE FROM [Member] WHERE member_id = '" & MemberIdShowLabel.Text & "'", conn)
+                Dim sqlcom As New SqlCommand("UPDATE [Member] SET visible = 0 WHERE member_id = '" & MemberIdShowLabel.Text & "'", conn)
                 conn.Open()
-                If sqlcom.ExecuteNonQuery > 0 Then
-                    MessageBox.Show("Employee Deleted.")
+                If ConfirmDialog() = True Then
+                    If sqlcom.ExecuteNonQuery > 0 Then
+                        MessageBox.Show("Employee Deleted.")
+                        conn.Close()
+                    Else
+                        conn.Close()
+                    End If
+                Else
                     conn.Close()
                 End If
             Catch ex As Exception

@@ -127,6 +127,12 @@
     <Compile Include="AddMember.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="confirm.Designer.vb">
+      <DependentUpon>confirm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="confirm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DatabaseConnection.vb" />
     <Compile Include="FontModule.vb" />
     <Compile Include="GymManagementDataSet.Designer.vb">
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddMember.resx">
       <DependentUpon>AddMember.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="confirm.resx">
+      <DependentUpon>confirm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImageView.resx">
       <DependentUpon>ImageView.vb</DependentUpon>
@@ -256,6 +265,7 @@
   <ItemGroup>
     <None Include="Resources\image_placeholder.png" />
     <None Include="Resources\2805355.png" />
+    <None Include="Resources\ban.png" />
     <Content Include="Resources\group.png" />
     <None Include="Resources\logout.png" />
     <EmbeddedResource Include="Resources\OpenSans-Regular.ttf" />

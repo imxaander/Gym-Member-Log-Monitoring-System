@@ -50,16 +50,17 @@ Partial Class UpdateMember
         Me.StartDatePicker = New System.Windows.Forms.DateTimePicker()
         Me.AddEndDateLabel = New System.Windows.Forms.Label()
         Me.AddDateStartLabel = New System.Windows.Forms.Label()
-        Me.ImageEditBox = New System.Windows.Forms.PictureBox()
         Me.ExitButton = New System.Windows.Forms.Label()
         Me.UpdateMemberPanel = New System.Windows.Forms.Panel()
+        Me.ContactNoTextBox2 = New System.Windows.Forms.TextBox()
+        Me.ContactNoTextBox1 = New System.Windows.Forms.TextBox()
         Me.UpdateMemberTopPanel = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ContactNoTextBox1 = New System.Windows.Forms.TextBox()
-        Me.ContactNoTextBox2 = New System.Windows.Forms.TextBox()
-        CType(Me.ImageEditBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ImageEditBox = New System.Windows.Forms.PictureBox()
+        Me.BlackListCheckBox = New System.Windows.Forms.CheckBox()
         Me.UpdateMemberPanel.SuspendLayout()
         Me.UpdateMemberTopPanel.SuspendLayout()
+        CType(Me.ImageEditBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'EditButton
@@ -369,15 +370,6 @@ Partial Class UpdateMember
         Me.AddDateStartLabel.TabIndex = 34
         Me.AddDateStartLabel.Text = "Start"
         '
-        'ImageEditBox
-        '
-        Me.ImageEditBox.Location = New System.Drawing.Point(28, 89)
-        Me.ImageEditBox.Name = "ImageEditBox"
-        Me.ImageEditBox.Size = New System.Drawing.Size(219, 100)
-        Me.ImageEditBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.ImageEditBox.TabIndex = 29
-        Me.ImageEditBox.TabStop = False
-        '
         'ExitButton
         '
         Me.ExitButton.BackColor = System.Drawing.Color.Transparent
@@ -395,6 +387,7 @@ Partial Class UpdateMember
         Me.UpdateMemberPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.UpdateMemberPanel.BackColor = System.Drawing.Color.White
+        Me.UpdateMemberPanel.Controls.Add(Me.BlackListCheckBox)
         Me.UpdateMemberPanel.Controls.Add(Me.ContactNoTextBox2)
         Me.UpdateMemberPanel.Controls.Add(Me.ContactNoTextBox1)
         Me.UpdateMemberPanel.Controls.Add(Me.EditIdTextBox)
@@ -430,6 +423,26 @@ Partial Class UpdateMember
         Me.UpdateMemberPanel.Size = New System.Drawing.Size(433, 368)
         Me.UpdateMemberPanel.TabIndex = 69
         '
+        'ContactNoTextBox2
+        '
+        Me.ContactNoTextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.ContactNoTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ContactNoTextBox2.ForeColor = System.Drawing.Color.Black
+        Me.ContactNoTextBox2.Location = New System.Drawing.Point(230, 299)
+        Me.ContactNoTextBox2.Name = "ContactNoTextBox2"
+        Me.ContactNoTextBox2.Size = New System.Drawing.Size(95, 20)
+        Me.ContactNoTextBox2.TabIndex = 39
+        '
+        'ContactNoTextBox1
+        '
+        Me.ContactNoTextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.ContactNoTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ContactNoTextBox1.ForeColor = System.Drawing.Color.Black
+        Me.ContactNoTextBox1.Location = New System.Drawing.Point(129, 299)
+        Me.ContactNoTextBox1.Name = "ContactNoTextBox1"
+        Me.ContactNoTextBox1.Size = New System.Drawing.Size(95, 20)
+        Me.ContactNoTextBox1.TabIndex = 38
+        '
         'UpdateMemberTopPanel
         '
         Me.UpdateMemberTopPanel.Controls.Add(Me.Label5)
@@ -451,25 +464,24 @@ Partial Class UpdateMember
         Me.Label5.TabIndex = 68
         Me.Label5.Text = "Update Member"
         '
-        'ContactNoTextBox1
+        'ImageEditBox
         '
-        Me.ContactNoTextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
-        Me.ContactNoTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ContactNoTextBox1.ForeColor = System.Drawing.Color.Black
-        Me.ContactNoTextBox1.Location = New System.Drawing.Point(129, 299)
-        Me.ContactNoTextBox1.Name = "ContactNoTextBox1"
-        Me.ContactNoTextBox1.Size = New System.Drawing.Size(95, 20)
-        Me.ContactNoTextBox1.TabIndex = 38
+        Me.ImageEditBox.Location = New System.Drawing.Point(28, 89)
+        Me.ImageEditBox.Name = "ImageEditBox"
+        Me.ImageEditBox.Size = New System.Drawing.Size(219, 100)
+        Me.ImageEditBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.ImageEditBox.TabIndex = 29
+        Me.ImageEditBox.TabStop = False
         '
-        'ContactNoTextBox2
+        'BlackListCheckBox
         '
-        Me.ContactNoTextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
-        Me.ContactNoTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ContactNoTextBox2.ForeColor = System.Drawing.Color.Black
-        Me.ContactNoTextBox2.Location = New System.Drawing.Point(230, 299)
-        Me.ContactNoTextBox2.Name = "ContactNoTextBox2"
-        Me.ContactNoTextBox2.Size = New System.Drawing.Size(95, 20)
-        Me.ContactNoTextBox2.TabIndex = 39
+        Me.BlackListCheckBox.AutoSize = True
+        Me.BlackListCheckBox.Location = New System.Drawing.Point(332, 302)
+        Me.BlackListCheckBox.Name = "BlackListCheckBox"
+        Me.BlackListCheckBox.Size = New System.Drawing.Size(89, 17)
+        Me.BlackListCheckBox.TabIndex = 40
+        Me.BlackListCheckBox.Text = "BLACKLIST?"
+        Me.BlackListCheckBox.UseVisualStyleBackColor = True
         '
         'UpdateMember
         '
@@ -483,11 +495,11 @@ Partial Class UpdateMember
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "UpdateMember"
         Me.Text = "Update Member"
-        CType(Me.ImageEditBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UpdateMemberPanel.ResumeLayout(False)
         Me.UpdateMemberPanel.PerformLayout()
         Me.UpdateMemberTopPanel.ResumeLayout(False)
         Me.UpdateMemberTopPanel.PerformLayout()
+        CType(Me.ImageEditBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -526,4 +538,5 @@ Partial Class UpdateMember
     Friend WithEvents Label5 As Label
     Friend WithEvents ContactNoTextBox2 As TextBox
     Friend WithEvents ContactNoTextBox1 As TextBox
+    Friend WithEvents BlackListCheckBox As CheckBox
 End Class

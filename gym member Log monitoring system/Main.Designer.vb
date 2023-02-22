@@ -27,7 +27,6 @@ Partial Class Main
         Me.TabControl = New System.Windows.Forms.TabControl()
         Me.ViewMembersTab = New System.Windows.Forms.TabPage()
         Me.membersGridView = New System.Windows.Forms.DataGridView()
-        Me.RefreshMemberButton = New System.Windows.Forms.PictureBox()
         Me.UpdateMemberButton = New System.Windows.Forms.Button()
         Me.SearchButton = New System.Windows.Forms.Button()
         Me.AddMemberButton = New System.Windows.Forms.Button()
@@ -46,35 +45,49 @@ Partial Class Main
         Me.Label5 = New System.Windows.Forms.Label()
         Me.EmployeeSearchTextBox = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.RefreshEmployeeButton = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.BlacklistTabButton = New System.Windows.Forms.Button()
         Me.EmployeesTabButton = New System.Windows.Forms.Button()
         Me.MembersTabButton = New System.Windows.Forms.Button()
         Me.MainHeading = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.TimeLabel = New System.Windows.Forms.Label()
-        Me.ExitButtonMain = New System.Windows.Forms.PictureBox()
         Me.LoggedInLabel = New System.Windows.Forms.Label()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.DirectorySearcher1 = New System.DirectoryServices.DirectorySearcher()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
+        Me.ViewBlackListTab = New System.Windows.Forms.TabPage()
+        Me.BlackListGridView = New System.Windows.Forms.DataGridView()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.ExitButtonMain = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.RefreshMemberButton = New System.Windows.Forms.PictureBox()
+        Me.RefreshEmployeeButton = New System.Windows.Forms.PictureBox()
+        Me.BlacklistRefreshButton = New System.Windows.Forms.PictureBox()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.TabControl.SuspendLayout()
         Me.ViewMembersTab.SuspendLayout()
         CType(Me.membersGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RefreshMemberButton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ViewEmployeesTab.SuspendLayout()
         CType(Me.employeesGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RefreshEmployeeButton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        Me.ViewBlackListTab.SuspendLayout()
+        CType(Me.BlackListGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ExitButtonMain, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RefreshMemberButton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RefreshEmployeeButton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BlacklistRefreshButton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel4.SuspendLayout()
-        CType(Me.ExitButtonMain, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl
@@ -85,6 +98,7 @@ Partial Class Main
         Me.TabControl.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
         Me.TabControl.Controls.Add(Me.ViewMembersTab)
         Me.TabControl.Controls.Add(Me.ViewEmployeesTab)
+        Me.TabControl.Controls.Add(Me.ViewBlackListTab)
         Me.TabControl.Font = New System.Drawing.Font("Gadugi", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl.ItemSize = New System.Drawing.Size(0, 1)
         Me.TabControl.Location = New System.Drawing.Point(14, 61)
@@ -131,17 +145,6 @@ Partial Class Main
         Me.membersGridView.ReadOnly = True
         Me.membersGridView.Size = New System.Drawing.Size(946, 415)
         Me.membersGridView.TabIndex = 11
-        '
-        'RefreshMemberButton
-        '
-        Me.RefreshMemberButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.RefreshMemberButton.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources._2805355
-        Me.RefreshMemberButton.Location = New System.Drawing.Point(570, 100)
-        Me.RefreshMemberButton.Name = "RefreshMemberButton"
-        Me.RefreshMemberButton.Size = New System.Drawing.Size(39, 31)
-        Me.RefreshMemberButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.RefreshMemberButton.TabIndex = 10
-        Me.RefreshMemberButton.TabStop = False
         '
         'UpdateMemberButton
         '
@@ -387,22 +390,13 @@ Partial Class Main
         Me.Label7.TabIndex = 4
         Me.Label7.Text = "Who are you looking for?"
         '
-        'RefreshEmployeeButton
-        '
-        Me.RefreshEmployeeButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.RefreshEmployeeButton.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources._2805355
-        Me.RefreshEmployeeButton.Location = New System.Drawing.Point(475, 100)
-        Me.RefreshEmployeeButton.Name = "RefreshEmployeeButton"
-        Me.RefreshEmployeeButton.Size = New System.Drawing.Size(39, 31)
-        Me.RefreshEmployeeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.RefreshEmployeeButton.TabIndex = 10
-        Me.RefreshEmployeeButton.TabStop = False
-        '
         'Panel3
         '
         Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.PictureBox6)
+        Me.Panel3.Controls.Add(Me.BlacklistTabButton)
         Me.Panel3.Controls.Add(Me.PictureBox4)
         Me.Panel3.Controls.Add(Me.PictureBox2)
         Me.Panel3.Controls.Add(Me.PictureBox1)
@@ -414,37 +408,20 @@ Partial Class Main
         Me.Panel3.Size = New System.Drawing.Size(210, 641)
         Me.Panel3.TabIndex = 4
         '
-        'PictureBox4
+        'BlacklistTabButton
         '
-        Me.PictureBox4.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources.manipaksiw_logo_nobg
-        Me.PictureBox4.Location = New System.Drawing.Point(15, 25)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(59, 62)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 5
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources.group
-        Me.PictureBox2.Location = New System.Drawing.Point(27, 197)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(33, 24)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 4
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources.group
-        Me.PictureBox1.Location = New System.Drawing.Point(27, 135)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(33, 24)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 3
-        Me.PictureBox1.TabStop = False
+        Me.BlacklistTabButton.BackColor = System.Drawing.Color.Transparent
+        Me.BlacklistTabButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BlacklistTabButton.FlatAppearance.BorderSize = 0
+        Me.BlacklistTabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BlacklistTabButton.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.BlacklistTabButton.ForeColor = System.Drawing.Color.White
+        Me.BlacklistTabButton.Location = New System.Drawing.Point(3, 246)
+        Me.BlacklistTabButton.Name = "BlacklistTabButton"
+        Me.BlacklistTabButton.Size = New System.Drawing.Size(204, 57)
+        Me.BlacklistTabButton.TabIndex = 6
+        Me.BlacklistTabButton.Text = "Blacklist"
+        Me.BlacklistTabButton.UseVisualStyleBackColor = False
         '
         'EmployeesTabButton
         '
@@ -513,18 +490,6 @@ Partial Class Main
         Me.TimeLabel.TabIndex = 11
         Me.TimeLabel.Text = "Time"
         '
-        'ExitButtonMain
-        '
-        Me.ExitButtonMain.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ExitButtonMain.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ExitButtonMain.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources.logout
-        Me.ExitButtonMain.Location = New System.Drawing.Point(960, 25)
-        Me.ExitButtonMain.Name = "ExitButtonMain"
-        Me.ExitButtonMain.Size = New System.Drawing.Size(27, 26)
-        Me.ExitButtonMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.ExitButtonMain.TabIndex = 10
-        Me.ExitButtonMain.TabStop = False
-        '
         'LoggedInLabel
         '
         Me.LoggedInLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -539,6 +504,93 @@ Partial Class Main
         Me.LoggedInLabel.Text = "User Name"
         Me.LoggedInLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
+        'DirectorySearcher1
+        '
+        Me.DirectorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01")
+        Me.DirectorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01")
+        Me.DirectorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01")
+        '
+        'Timer
+        '
+        '
+        'ViewBlackListTab
+        '
+        Me.ViewBlackListTab.BackColor = System.Drawing.Color.White
+        Me.ViewBlackListTab.Controls.Add(Me.BlackListGridView)
+        Me.ViewBlackListTab.Controls.Add(Me.Button2)
+        Me.ViewBlackListTab.Controls.Add(Me.Label3)
+        Me.ViewBlackListTab.Controls.Add(Me.TextBox1)
+        Me.ViewBlackListTab.Controls.Add(Me.Label6)
+        Me.ViewBlackListTab.Controls.Add(Me.BlacklistRefreshButton)
+        Me.ViewBlackListTab.Location = New System.Drawing.Point(4, 5)
+        Me.ViewBlackListTab.Name = "ViewBlackListTab"
+        Me.ViewBlackListTab.Padding = New System.Windows.Forms.Padding(3)
+        Me.ViewBlackListTab.Size = New System.Drawing.Size(982, 558)
+        Me.ViewBlackListTab.TabIndex = 2
+        '
+        'BlackListGridView
+        '
+        Me.BlackListGridView.AllowUserToAddRows = False
+        Me.BlackListGridView.AllowUserToDeleteRows = False
+        Me.BlackListGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BlackListGridView.BackgroundColor = System.Drawing.Color.White
+        Me.BlackListGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.BlackListGridView.Location = New System.Drawing.Point(23, 140)
+        Me.BlackListGridView.Name = "BlackListGridView"
+        Me.BlackListGridView.ReadOnly = True
+        Me.BlackListGridView.Size = New System.Drawing.Size(946, 415)
+        Me.BlackListGridView.TabIndex = 11
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Gadugi", 25.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel)
+        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.Location = New System.Drawing.Point(-5, 15)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(110, 30)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "Blacklist"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None
+        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox1.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TextBox1.ForeColor = System.Drawing.Color.Black
+        Me.TextBox1.Location = New System.Drawing.Point(23, 104)
+        Me.TextBox1.MaxLength = 20
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(326, 27)
+        Me.TextBox1.TabIndex = 0
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Gadugi", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(19, 82)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(186, 19)
+        Me.Label6.TabIndex = 4
+        Me.Label6.Text = "Who are you looking for?"
+        '
+        'ExitButtonMain
+        '
+        Me.ExitButtonMain.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ExitButtonMain.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ExitButtonMain.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources.logout
+        Me.ExitButtonMain.Location = New System.Drawing.Point(960, 25)
+        Me.ExitButtonMain.Name = "ExitButtonMain"
+        Me.ExitButtonMain.Size = New System.Drawing.Size(27, 26)
+        Me.ExitButtonMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.ExitButtonMain.TabIndex = 10
+        Me.ExitButtonMain.TabStop = False
+        '
         'PictureBox3
         '
         Me.PictureBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -550,14 +602,95 @@ Partial Class Main
         Me.PictureBox3.TabIndex = 4
         Me.PictureBox3.TabStop = False
         '
-        'DirectorySearcher1
+        'RefreshMemberButton
         '
-        Me.DirectorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01")
-        Me.DirectorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01")
-        Me.DirectorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01")
+        Me.RefreshMemberButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RefreshMemberButton.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources._2805355
+        Me.RefreshMemberButton.Location = New System.Drawing.Point(570, 100)
+        Me.RefreshMemberButton.Name = "RefreshMemberButton"
+        Me.RefreshMemberButton.Size = New System.Drawing.Size(39, 31)
+        Me.RefreshMemberButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.RefreshMemberButton.TabIndex = 10
+        Me.RefreshMemberButton.TabStop = False
         '
-        'Timer
+        'RefreshEmployeeButton
         '
+        Me.RefreshEmployeeButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RefreshEmployeeButton.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources._2805355
+        Me.RefreshEmployeeButton.Location = New System.Drawing.Point(475, 100)
+        Me.RefreshEmployeeButton.Name = "RefreshEmployeeButton"
+        Me.RefreshEmployeeButton.Size = New System.Drawing.Size(39, 31)
+        Me.RefreshEmployeeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.RefreshEmployeeButton.TabIndex = 10
+        Me.RefreshEmployeeButton.TabStop = False
+        '
+        'BlacklistRefreshButton
+        '
+        Me.BlacklistRefreshButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BlacklistRefreshButton.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources._2805355
+        Me.BlacklistRefreshButton.Location = New System.Drawing.Point(475, 100)
+        Me.BlacklistRefreshButton.Name = "BlacklistRefreshButton"
+        Me.BlacklistRefreshButton.Size = New System.Drawing.Size(39, 31)
+        Me.BlacklistRefreshButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.BlacklistRefreshButton.TabIndex = 10
+        Me.BlacklistRefreshButton.TabStop = False
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox6.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources.ban
+        Me.PictureBox6.Location = New System.Drawing.Point(27, 262)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(33, 24)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox6.TabIndex = 7
+        Me.PictureBox6.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources.manipaksiw_logo_nobg
+        Me.PictureBox4.Location = New System.Drawing.Point(15, 25)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(59, 62)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox4.TabIndex = 5
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources.group
+        Me.PictureBox2.Location = New System.Drawing.Point(27, 197)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(33, 24)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 4
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.gym_member_Log_monitoring_system.My.Resources.Resources.group
+        Me.PictureBox1.Location = New System.Drawing.Point(27, 135)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(33, 24)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 3
+        Me.PictureBox1.TabStop = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(58, Byte), Integer))
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Gadugi", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(355, 100)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(114, 31)
+        Me.Button2.TabIndex = 9
+        Me.Button2.Text = "SEARCH"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Main
         '
@@ -578,20 +711,25 @@ Partial Class Main
         Me.ViewMembersTab.ResumeLayout(False)
         Me.ViewMembersTab.PerformLayout()
         CType(Me.membersGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RefreshMemberButton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ViewEmployeesTab.ResumeLayout(False)
         Me.ViewEmployeesTab.PerformLayout()
         CType(Me.employeesGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RefreshEmployeeButton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.ViewBlackListTab.ResumeLayout(False)
+        Me.ViewBlackListTab.PerformLayout()
+        CType(Me.BlackListGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ExitButtonMain, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RefreshMemberButton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RefreshEmployeeButton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BlacklistRefreshButton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
-        CType(Me.ExitButtonMain, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -632,4 +770,13 @@ Partial Class Main
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents Timer As Timer
     Friend WithEvents TimeLabel As Label
+    Friend WithEvents BlacklistTabButton As Button
+    Friend WithEvents ViewBlackListTab As TabPage
+    Friend WithEvents BlackListGridView As DataGridView
+    Friend WithEvents Label3 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents BlacklistRefreshButton As PictureBox
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents Button2 As Button
 End Class

@@ -35,6 +35,7 @@ Public Class Main
         'Load Member Overview
         LoadMemberOverView()
         LoadEmployeeOverView()
+        LoadMemberOverView()
 
         'ui
         'membersGridView.Dock = DockStyle.Fill
@@ -56,7 +57,7 @@ Public Class Main
         'Initialize dataTable and get table values
         Dim dtMembers As New DataTable
 
-        Dim sql As String = "SELECT * FROM [Member] ORDER BY member_id ASC"
+        Dim sql As String = "SELECT * FROM [Member] WHERE visible != 0 AND blacklisted != 1 ORDER BY member_id ASC"
         Dim sqlCom As New SqlCommand(sql, conn)
         sqlCom.Connection = conn
         conn.Open()
@@ -292,12 +293,23 @@ Public Class Main
         TabControl.SelectedTab = ViewMembersTab
         MembersTabButton.BackColor = Color.FromArgb(52, 55, 78)
         EmployeesTabButton.BackColor = Color.FromArgb(40, 42, 58)
+        BlacklistTabButton.BackColor = Color.FromArgb(40, 42, 58)
     End Sub
 
     Private Sub EmployeesTabButton_Click(sender As Object, e As EventArgs) Handles EmployeesTabButton.Click
         TabControl.SelectedTab = ViewEmployeesTab
         MembersTabButton.BackColor = Color.FromArgb(40, 42, 58)
         EmployeesTabButton.BackColor = Color.FromArgb(52, 55, 78)
+        BlacklistTabButton.BackColor = Color.FromArgb(40, 42, 58)
+    End Sub
+
+    Private Sub BlacklistTabButton_Click(sender As Object, e As EventArgs) Handles BlacklistTabButton.Click
+        LoadBlacklistOverView()
+        TabControl.SelectedTab = ViewBlackListTab
+        MembersTabButton.BackColor = Color.FromArgb(40, 42, 58)
+        BlacklistTabButton.BackColor = Color.FromArgb(52, 55, 78)
+        EmployeesTabButton.BackColor = Color.FromArgb(40, 42, 58)
+
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
@@ -341,7 +353,49 @@ Public Class Main
 
 
     End Sub
+    Public Sub LoadBlacklistOverView()
 
+        'Initialize dataTable and get table values
+        Dim dtMembers As New DataTable
+
+        Dim sql As String = "SELECT * FROM [Member] WHERE blacklisted = 1 ORDER BY member_id ASC"
+        Dim sqlCom As New SqlCommand(sql, conn)
+        sqlCom.Connection = conn
+        conn.Open()
+
+        Dim sqlRead As SqlDataReader = sqlCom.ExecuteReader()
+
+        dtMembers.Load(sqlRead)
+
+        sqlRead.Close()
+        conn.Close()
+
+        'load table values to the grid view
+        BlackListGridView.DataSource = dtMembers
+
+        'change color of row depending on how many days left
+        ColorMemberRows()
+
+        'change table columns to nicer name
+        BlackListGridView.Columns("member_id").HeaderCell.Value = "Member ID"
+        BlackListGridView.Columns("last_name").HeaderCell.Value = "Last Name"
+        BlackListGridView.Columns("first_name").HeaderCell.Value = "First Name"
+        BlackListGridView.Columns("middle_name").HeaderCell.Value = "Middle Name"
+        BlackListGridView.Columns("dob").HeaderCell.Value = "Date of Birth"
+        BlackListGridView.Columns("gender").HeaderCell.Value = "Gender"
+        BlackListGridView.Columns("contact").HeaderCell.Value = "Contact No"
+        BlackListGridView.Columns("email").HeaderCell.Value = "Email"
+        BlackListGridView.Columns("address").HeaderCell.Value = "Address"
+        BlackListGridView.Columns("date_Start").HeaderCell.Value = "Started Date"
+        BlackListGridView.Columns("date_End").HeaderCell.Value = "Ending Date"
+        BlackListGridView.Columns("image").HeaderCell.Value = "Image"
+
+        BlackListGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+    End Sub
+
+    Private Sub BlacklistRefreshButton_Click(sender As Object, e As EventArgs) Handles BlacklistRefreshButton.Click
+        LoadBlacklistOverView()
+    End Sub
 
 
     'Code just incase automatic filtering
