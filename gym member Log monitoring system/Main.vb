@@ -33,9 +33,9 @@ Public Class Main
         conn.Close()
 
         'Load Member Overview
-        LoadMemberOverView()
         LoadEmployeeOverView()
         LoadMemberOverView()
+
 
         'ui
         'membersGridView.Dock = DockStyle.Fill
@@ -50,6 +50,7 @@ Public Class Main
         'set defaults
         MemberFilterColBox.SelectedIndex = 5
         StatusBox.SelectedIndex = 4
+        LoadMemberOverView()
 
     End Sub
     Public Sub LoadMemberOverView()
@@ -101,7 +102,6 @@ Public Class Main
 
         For i = 0 To membersGridView.Rows.Count - 1
 
-
             If dangerDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
                 membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Red
             ElseIf warningDays > (DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value) - DateTime.Parse(dateToday)).TotalDays Then
@@ -111,7 +111,6 @@ Public Class Main
             If outDays < (DateTime.Parse(dateToday) - DateTime.Parse(membersGridView.Rows(i).Cells("date_End").Value)).TotalDays Then
                 membersGridView.Rows(i).DefaultCellStyle.BackColor = Color.Blue
             End If
-
 
         Next
     End Sub
@@ -165,17 +164,18 @@ Public Class Main
     Public Sub FilterMemberDataGridView() Handles SearchButton.Click
         Dim dtMembers As New DataTable
         Dim sql As String = ""
-
-        If MemberFilterColBox.Text = "Member ID" Then
-            sql = "SELECT * FROM [Member] WHERE  LOWER(member_id) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+        If MemberSearchTextBox.Text = "" And MemberFilterColBox.Text = "All" Then
+            sql = "SELECT * FROM [Member] WHERE blacklisted != 1 AND visible = 1"
+        ElseIf MemberFilterColBox.Text = "Member ID" Then
+            sql = "SELECT * FROM [Member] WHERE blacklisted != 1 AND visible = 1 AND LOWER(member_id) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
         ElseIf MemberFilterColBox.Text = "Last Name" Then
-            sql = "SELECT * FROM [Member] WHERE  LOWER(last_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+            sql = "SELECT * FROM [Member] WHERE blacklisted != 1 AND visible = 1 AND LOWER(last_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
         ElseIf MemberFilterColBox.Text = "First Name" Then
-            sql = "SELECT * FROM [Member] WHERE  LOWER(first_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+            sql = "SELECT * FROM [Member] WHERE blacklisted != 1 AND visible = 1 AND LOWER(first_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
         ElseIf MemberFilterColBox.Text = "Middle Name" Then
-            sql = "SELECT * FROM [Member] WHERE  LOWER(middle_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+            sql = "SELECT * FROM [Member] WHERE blacklisted != 1 AND visible = 1 AND LOWER(middle_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') "
         ElseIf MemberFilterColBox.Text = "Email" Then
-            sql = "SELECT * FROM [Member] WHERE  LOWER(email) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+            sql = "SELECT * FROM [Member] WHERE blacklisted != 1 AND visible = 1 AND LOWER(email) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
         ElseIf MemberFilterColBox.Text = "All" Then
             sql = "SELECT * FROM [Member] WHERE
                     LOWER(member_id) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') OR
@@ -184,9 +184,9 @@ Public Class Main
                     LOWER(first_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') OR
                     LOWER(middle_name) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') OR
                     LOWER(contact) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') OR
-                    LOWER(address) LIKE LOWER('%" + MemberSearchTextBox.Text + "%')"
+                    LOWER(address) LIKE LOWER('%" + MemberSearchTextBox.Text + "%') AND blacklisted != 1 AND visible = 1"
         Else
-            sql = "SELECT * FROM [Member]"
+            sql = "SELECT * FROM [Member] WHERE blacklisted != 1 AND visible = 1"
         End If
 
         Dim sqlCom As New SqlCommand(sql, conn)
@@ -202,6 +202,7 @@ Public Class Main
         conn.Close()
         ColorMemberRows()
     End Sub
+
     Public Sub FilterEmployeeDataGridView()
         Dim dtEmployees As New DataTable
 

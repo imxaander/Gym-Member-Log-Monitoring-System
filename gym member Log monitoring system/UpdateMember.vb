@@ -100,8 +100,7 @@ Public Class UpdateMember
             ImageEditBox.Image = Image.FromFile(opf.FileName)
         End If
     End Sub
-
-    Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
+    Private Function UpdateMember()
         If CheckAddFields() Then
 
             'initialize values
@@ -119,7 +118,6 @@ Public Class UpdateMember
 
             Dim ms As New MemoryStream
             ImageEditBox.Image.Save(ms, ImageEditBox.Image.RawFormat)
-
             Dim image = ms.ToArray()
             Try
                 Dim sqlcom As New SqlCommand("UPDATE [Member] SET last_name = '" & lastName & "', first_name = '" & firstName & "', middle_name = '" & middleName & "', dob = '" & dob & "', gender = '" & gender & "', contact = '" & contact & "', address = '" & address & "', date_Start = '" & dateStart & "', date_End = '" & dateEnd & "',  image = @image, blacklisted = '" & blacklisted & "' WHERE member_id = '" & member_id & "'", conn)
@@ -135,6 +133,9 @@ Public Class UpdateMember
                 conn.Close()
             End Try
         End If
+    End Function
+    Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
+        UpdateMember()
     End Sub
 
     Private Function CheckAddFields() As Boolean
@@ -263,6 +264,20 @@ Public Class UpdateMember
         End If
 
     End Sub
+
+    Private Sub BlacklistButton_Click(sender As Object, e As EventArgs) Handles BlacklistButton.Click
+        BlackListCheckBox.Checked = True
+        If ConfirmDialog() Then
+            UpdateMember()
+        Else
+            BlackListCheckBox.Checked = False
+        End If
+    End Sub
+
+    Private Sub BlackListCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles BlackListCheckBox.CheckedChanged
+
+    End Sub
+
 
 #End Region
 End Class

@@ -52,15 +52,16 @@ Partial Class UpdateMember
         Me.AddDateStartLabel = New System.Windows.Forms.Label()
         Me.ExitButton = New System.Windows.Forms.Label()
         Me.UpdateMemberPanel = New System.Windows.Forms.Panel()
+        Me.BlacklistButton = New System.Windows.Forms.Button()
+        Me.BlackListCheckBox = New System.Windows.Forms.CheckBox()
         Me.ContactNoTextBox2 = New System.Windows.Forms.TextBox()
         Me.ContactNoTextBox1 = New System.Windows.Forms.TextBox()
+        Me.ImageEditBox = New System.Windows.Forms.PictureBox()
         Me.UpdateMemberTopPanel = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ImageEditBox = New System.Windows.Forms.PictureBox()
-        Me.BlackListCheckBox = New System.Windows.Forms.CheckBox()
         Me.UpdateMemberPanel.SuspendLayout()
-        Me.UpdateMemberTopPanel.SuspendLayout()
         CType(Me.ImageEditBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UpdateMemberTopPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'EditButton
@@ -387,6 +388,7 @@ Partial Class UpdateMember
         Me.UpdateMemberPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.UpdateMemberPanel.BackColor = System.Drawing.Color.White
+        Me.UpdateMemberPanel.Controls.Add(Me.BlacklistButton)
         Me.UpdateMemberPanel.Controls.Add(Me.BlackListCheckBox)
         Me.UpdateMemberPanel.Controls.Add(Me.ContactNoTextBox2)
         Me.UpdateMemberPanel.Controls.Add(Me.ContactNoTextBox1)
@@ -423,6 +425,26 @@ Partial Class UpdateMember
         Me.UpdateMemberPanel.Size = New System.Drawing.Size(433, 368)
         Me.UpdateMemberPanel.TabIndex = 69
         '
+        'BlacklistButton
+        '
+        Me.BlacklistButton.Location = New System.Drawing.Point(332, 296)
+        Me.BlacklistButton.Name = "BlacklistButton"
+        Me.BlacklistButton.Size = New System.Drawing.Size(74, 23)
+        Me.BlacklistButton.TabIndex = 41
+        Me.BlacklistButton.Text = "BLACKLIST"
+        Me.BlacklistButton.UseVisualStyleBackColor = True
+        '
+        'BlackListCheckBox
+        '
+        Me.BlackListCheckBox.AutoSize = True
+        Me.BlackListCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.BlackListCheckBox.Location = New System.Drawing.Point(-61, 222)
+        Me.BlackListCheckBox.Name = "BlackListCheckBox"
+        Me.BlackListCheckBox.Size = New System.Drawing.Size(83, 18)
+        Me.BlackListCheckBox.TabIndex = 40
+        Me.BlackListCheckBox.Text = "                 "
+        Me.BlackListCheckBox.UseVisualStyleBackColor = True
+        '
         'ContactNoTextBox2
         '
         Me.ContactNoTextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
@@ -442,6 +464,15 @@ Partial Class UpdateMember
         Me.ContactNoTextBox1.Name = "ContactNoTextBox1"
         Me.ContactNoTextBox1.Size = New System.Drawing.Size(95, 20)
         Me.ContactNoTextBox1.TabIndex = 38
+        '
+        'ImageEditBox
+        '
+        Me.ImageEditBox.Location = New System.Drawing.Point(28, 89)
+        Me.ImageEditBox.Name = "ImageEditBox"
+        Me.ImageEditBox.Size = New System.Drawing.Size(219, 100)
+        Me.ImageEditBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.ImageEditBox.TabIndex = 29
+        Me.ImageEditBox.TabStop = False
         '
         'UpdateMemberTopPanel
         '
@@ -464,25 +495,6 @@ Partial Class UpdateMember
         Me.Label5.TabIndex = 68
         Me.Label5.Text = "Update Member"
         '
-        'ImageEditBox
-        '
-        Me.ImageEditBox.Location = New System.Drawing.Point(28, 89)
-        Me.ImageEditBox.Name = "ImageEditBox"
-        Me.ImageEditBox.Size = New System.Drawing.Size(219, 100)
-        Me.ImageEditBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.ImageEditBox.TabIndex = 29
-        Me.ImageEditBox.TabStop = False
-        '
-        'BlackListCheckBox
-        '
-        Me.BlackListCheckBox.AutoSize = True
-        Me.BlackListCheckBox.Location = New System.Drawing.Point(332, 302)
-        Me.BlackListCheckBox.Name = "BlackListCheckBox"
-        Me.BlackListCheckBox.Size = New System.Drawing.Size(89, 17)
-        Me.BlackListCheckBox.TabIndex = 40
-        Me.BlackListCheckBox.Text = "BLACKLIST?"
-        Me.BlackListCheckBox.UseVisualStyleBackColor = True
-        '
         'UpdateMember
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -497,9 +509,9 @@ Partial Class UpdateMember
         Me.Text = "Update Member"
         Me.UpdateMemberPanel.ResumeLayout(False)
         Me.UpdateMemberPanel.PerformLayout()
+        CType(Me.ImageEditBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UpdateMemberTopPanel.ResumeLayout(False)
         Me.UpdateMemberTopPanel.PerformLayout()
-        CType(Me.ImageEditBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -539,4 +551,5 @@ Partial Class UpdateMember
     Friend WithEvents ContactNoTextBox2 As TextBox
     Friend WithEvents ContactNoTextBox1 As TextBox
     Friend WithEvents BlackListCheckBox As CheckBox
+    Friend WithEvents BlacklistButton As Button
 End Class
